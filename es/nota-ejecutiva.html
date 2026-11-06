@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Paraguay, el último bastión · Nota ejecutiva</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<style>body{margin:0}
+/* Layout: nota ejecutiva de dos páginas A4, blanco y negro, Times New Roman. Una columna, sin filetes decorativos salvo los de las tablas. */
+:root{--paper:#fff;--ink:#000;--soft:#333;--serif:"Times New Roman",Tinos,"Liberation Serif",Times,serif;color-scheme:light}
+*{box-sizing:border-box}
+html{background:var(--paper)}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:16px;line-height:1.45}
+.paper{max-width:740px;margin:0 auto;padding-block:44px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit;text-decoration:none}
+p{margin:0 0 .6em;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+.top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;margin-bottom:22px}
+.kind{font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+h1{font-size:22px;line-height:1.25;margin:0 0 4px}
+.sub{font-style:italic;margin:0 0 4px}
+.meta{font-size:14px;margin:0 0 18px}
+h2{font-size:15.5px;font-weight:700;margin:1.15em 0 .4em}
+ul{margin:0 0 .6em;padding-left:1.2em}
+li{margin-bottom:.25em;text-align:justify}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.35;min-width:480px;font-variant-numeric:lining-nums tabular-nums}
+thead th{border-top:1.5px solid var(--ink);border-bottom:.75px solid var(--ink);text-align:left;padding:5px 10px 5px 0;font-weight:700}
+td{padding:4px 10px 4px 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5px solid var(--ink)}
+td.n,th.n{text-align:right;white-space:nowrap}
+ol{margin:0 0 .6em;padding-left:1.3em}
+ol li{margin-bottom:.35em}
+.note{font-size:13px;margin-top:.4em}
+.sig{margin-top:14px}
+
+/* Sangría tipográfica: primera línea sangrada, sin espacio entre párrafos, sin sangría tras títulos */
+article p{margin:0;text-indent:1.5em}
+h2+p,h3+p,h2+section p:first-child,.eq+p,.list+p,figure+p,.tbl+p,ul+p,ol+p,.abstract p,.kw,.fnote,figure p,.preface p,.decl p,.vars,.type,.subt,.author,.affil,.dates,.sign,.note,.meta,.sub,.kind{text-indent:0}
+.abstract p,.decl p,.preface p{margin:0 0 .5em}
+@page{size:A4;margin:16mm 18mm 16mm}
+@media print{
+  body{font-size:10.5pt;line-height:1.38}
+  .paper{max-width:none;padding:0}
+  .top,.kind{font-size:8.5pt}
+  h1{font-size:15pt}
+  .meta{font-size:9.5pt}
+  h2{font-size:11pt;margin:.85em 0 .3em}
+  table{font-size:9.5pt;min-width:0}
+  .note{font-size:8.5pt}
+  .p2{break-before:page}
+}
+</style>
+</head>
+<body>
+
+<article class="paper">
+<div class="top"><span>Nota ejecutiva · Documento de trabajo N.º 1/2026</span><span>6 de noviembre de 2026</span></div>
+<p class="kind">Para el Banco Central del Paraguay y las instituciones del sistema financiero y energético</p>
+<h1>Paraguay, el último bastión</h1>
+<p class="sub">Una propuesta de adopción voluntaria y verificable de Bitcoin, sin tocar el guaraní</p>
+<p class="meta">Gregorio Punzano · Satolink, España · gregorio@satolink.com</p>
+
+<h2>1. El problema</h2>
+<ul>
+  <li><b>Confianza escasa.</b> Paraguay obtiene 24 de 100 puntos en el Índice de Percepción de la Corrupción 2025 (puesto 150 de 182). La confianza en el Parlamento es del 23% y en los partidos, del 14%. La resolución de Ueno Bank en noviembre de 2026, seguida de la renuncia del presidente del BCP y del presidente de la República, y la subida del dólar y del USDT muestran que los ahorradores buscan refugio.</li>
+  <li><b>Remesas caras y lentas.</b> Paraguay recibió 731 millones de dólares en remesas en 2024; el 61% llegó desde España. La medición de este trabajo en ese corredor sitúa el coste de las ofertas estándar entre el 3,5% y el 7,9%, con el coste a menudo oculto en el tipo de cambio, y plazos de hasta cuatro días a cuenta bancaria.</li>
+  <li><b>Energía vendida barata.</b> En 2024 Paraguay cedió a Brasil 10,1 millones de MWh de Itaipú a 18,9 dólares por MWh.</li>
+  <li><b>Vecinos con monedas débiles.</b> Argentina cerró 2025 con un 31,5% de inflación; en Bolivia, el uso de activos virtuales se multiplicó por 6,3 en un año. El comercio de frontera mueve miles de millones de dólares.</li>
+</ul>
+
+<h2>2. La propuesta</h2>
+<p>Un principio rector, <i>verificar, no confiar</i>, y cinco pilares:</p>
+<ul>
+  <li><b>Energía soberana:</b> destinar parte del excedente a usos de mayor valor, incluida la minería estatal ya en curso en la ANDE.</li>
+  <li><b>Remesas:</b> envíos en segundos sobre la red Lightning, sin custodia de fondos.</li>
+  <li><b>Transparencia:</b> una reserva pública multifirma 3 de 5, auditable por cualquier ciudadano en tiempo real. Se propone una métrica nueva, el Índice de Verificabilidad Pública, con un objetivo del 100%.</li>
+  <li><b>Piloto regulado:</b> autorización acotada del BCP, con prevención del lavado integrada en el registro de la Seprelad.</li>
+  <li><b>Educación:</b> formación en autocustodia antes de escalar.</li>
+</ul>
+<p><b>Lo que no se propone:</b> ni curso legal para Bitcoin, ni sustituir el guaraní, ni obligar a nadie, ni una aplicación estatal, ni regalos para forzar la adopción. Son los errores documentados de El Salvador.</p>
+
+<h2 class="p2">3. Cifras clave</h2>
+<div class="tbl">
+<table>
+  <thead><tr><th>Indicador</th><th class="n">Valor</th></tr></thead>
+  <tbody>
+    <tr><td>Coste actual de las ofertas estándar España–Paraguay (medición propia)</td><td class="n">3,5%–7,9%</td></tr>
+    <tr><td>Coste total sobre Lightning, con conversión a guaraníes, a tasas minoristas de hoy</td><td class="n">2,4%–3,2%</td></tr>
+    <tr><td>Coste total con un socio local que liquide a tipo mayorista</td><td class="n">1,7%</td></tr>
+    <tr><td>Ahorro anual de los hogares, plena adopción, con socio local</td><td class="n">20,4 M USD</td></tr>
+    <tr><td>Ahorro anual máximo según escenarios de coste actual</td><td class="n">hasta 50,4 M USD</td></tr>
+    <tr><td>Valor adicional anual del excedente energético (escenarios)</td><td class="n">11–157 M USD</td></tr>
+    <tr><td>Equipo técnico de clase mundial para el piloto, a salarios de EE. UU.</td><td class="n">0,74–1,0 M USD/año</td></tr>
+    <tr><td>Impuesto a la renta de un ingeniero con 200.000 USD: EE. UU. (federal) frente a Paraguay (máximo)</td><td class="n">36.734 frente a ≤ 20.000 USD</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="note">Fuentes y supuestos en el documento completo: BCP, Banco Mundial, Transparencia Internacional, Latinobarómetro, INDEC, Banco Central de Bolivia y medición propia del 5 de noviembre de 2026.</p>
+
+<h2>4. Vía legal</h2>
+<p>Las Fases 0, 1 y 2 no requieren ninguna ley nueva. El piloto puede autorizarse mediante una resolución del BCP con base en el artículo 4, inciso d, de la Ley 7503/2025 del Sistema Nacional de Pagos, la misma facultad usada en 2025 para incorporar a las fintech. Solo la reserva pública de la Fase 3 exige una ley, cuyos seis elementos mínimos se detallan en el documento. Esto evita el riesgo político que hizo fracasar la ley de criptoactivos de 2022. Se propone además que la DNIT sustituya el detalle por operación con direcciones de billetera de la Resolución General 47/2026 por un informe anual agregado: verificación máxima para los activos del Estado, protección máxima para el patrimonio del ciudadano.</p>
+
+<h2>5. Hoja de ruta</h2>
+<ul>
+  <li><b>Fase 0 (meses 0–3):</b> diálogo con BCP, Superintendencia de Valores, Seprelad, ANDE y Migraciones; socio local con licencia.</li>
+  <li><b>Fase 1 (meses 3–12):</b> piloto de remesas España–Paraguay con siete indicadores públicos: coste ≤ 2%, disponibilidad ≤ 10 minutos, éxito ≥ 99%, cero pérdidas, cumplimiento al 100%.</li>
+  <li><b>Fase 2 (año 2):</b> educación, comercios de frontera en Ciudad del Este y Encarnación, atracción de talento.</li>
+  <li><b>Fase 3 (año 3 en adelante):</b> reserva energética verificable, previa aprobación de una ley.</li>
+</ul>
+
+<h2>6. La petición</h2>
+<ol>
+  <li>Una reunión técnica con el BCP para abrir la Fase 0 y validar el protocolo propuesto.</li>
+  <li>La designación de un interlocutor para estudiar una autorización acotada del piloto bajo la Ley 7503/2025.</li>
+  <li>La identificación de una entidad financiera autorizada dispuesta a actuar como socio de liquidación en guaraníes.</li>
+</ol>
+
+<p class="sig"><b>Compromiso del autor.</b> Liderar personalmente la ejecución, establecer en Paraguay el centro de operaciones del piloto, publicar sus resultados cada mes y anteponer el interés del país al de cualquier empresa, incluida la propia, que podría participar en el piloto mediante selección abierta.</p>
+<p class="note">Documento completo: <i>Paraguay, el último bastión. Documento de trabajo N.º 1/2026</i>, con fuentes, modelos, análisis jurídico y anexo técnico.</p>
+</article>
+
+</body>
+</html>

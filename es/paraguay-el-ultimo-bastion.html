@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Paraguay, el último bastión</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<style>body{margin:0}
+/* Layout: white paper académico en blanco y negro. Una columna de ~75 caracteres, Times New Roman 12 pt, texto justificado, sin filetes decorativos; solo los filetes propios de las tablas. Una sola apariencia, por decisión: documento para imprimir. */
+:root{
+  --paper:#ffffff;
+  --ink:#000000;
+  --ink-soft:#333333;
+  --grey-1:#4d4d4d;
+  --grey-2:#9a9a9a;
+  --grey-3:#d9d9d9;
+  --wash:#f2f2f2;
+  --serif:"Times New Roman",Tinos,"Liberation Serif",Times,serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{background:var(--paper)}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.paper{max-width:740px;margin:0 auto;padding-block:48px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit;text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+p{margin:0 0 .8em;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+.running{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;margin-bottom:56px}
+.type{text-align:center;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:22px}
+h1{font-size:24px;line-height:1.25;text-align:center;font-weight:700;margin:0 0 12px;text-wrap:balance}
+.subt{text-align:center;font-size:17px;font-style:italic;line-height:1.4;margin:0 auto 28px;max-width:34em;text-wrap:balance}
+.author{text-align:center;font-size:16px;margin:0 0 2px}
+.author sup{font-size:.65em}
+.affil{text-align:center;font-size:14px;line-height:1.45;margin:0 0 4px}
+.dates{text-align:center;font-size:14px;margin:0 0 40px}
+.abstract{margin:0 auto 26px;max-width:620px;font-size:15px;line-height:1.5}
+.abstract h2{font-size:15px;text-align:center;margin:0 0 8px;font-weight:700}
+.abstract p{margin-bottom:.6em}
+.kw{text-align:left;margin:0 0 .3em}
+h2.sec{font-size:17px;font-weight:700;margin:2em 0 .6em;text-wrap:balance}
+h3{font-size:16px;font-weight:700;font-style:italic;margin:1.5em 0 .5em}
+.list{margin:.3em 0 1em;padding:0;list-style:none;display:grid;gap:.45em}
+.list li{display:grid;grid-template-columns:40px 1fr;gap:4px;text-align:justify}
+.eq{display:grid;grid-template-columns:1fr auto;align-items:center;margin:1em 0 1.1em;font-size:19px}
+.eq span:first-child{text-align:center;font-style:italic}
+.eq span:last-child{font-size:16px}
+figure{margin:1.6em 0 1.8em;break-inside:avoid}
+.fnum{font-weight:700;font-size:15px}
+.ftitle{font-style:italic;font-size:15px;margin-bottom:10px;line-height:1.4}
+.svgbox{overflow-x:auto}
+.svgbox svg{display:block;width:100%;height:auto;min-width:500px}
+.svgbox svg text{font-family:var(--serif)}
+.fnote{font-size:13.5px;line-height:1.45;margin-top:8px;text-align:left}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.4;min-width:520px;font-variant-numeric:lining-nums tabular-nums}
+thead th{border-top:1.5px solid var(--ink);border-bottom:.75px solid var(--ink);font-weight:700;text-align:left;padding:6px 10px 6px 0;vertical-align:bottom}
+td{padding:6px 10px 6px 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5px solid var(--ink)}
+td.n,th.n{text-align:right}
+td.b{font-weight:700}
+.arch{display:grid;gap:8px;font-size:14px;line-height:1.35}
+.arch .roof{border:1.25px solid var(--ink);text-align:center;padding:9px;font-weight:700}
+.arch .cols{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.arch .col{border:.75px solid var(--ink);padding:9px 8px;display:grid;gap:4px;align-content:start;min-width:0}
+.arch .base{background:var(--wash);text-align:center;padding:8px}
+.road{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;font-size:14px;line-height:1.4}
+.road>div{border:.75px solid var(--ink);padding:9px 9px 11px;display:grid;gap:3px;align-content:start;min-width:0}
+.road .on{border-width:2px}
+.road .g{font-style:italic;padding-top:6px}
+.decl{font-size:14.5px;margin-top:2.4em}
+.decl p{margin-bottom:.5em}
+.refs{font-size:14px;line-height:1.45;padding-left:0;list-style:none;display:grid;gap:6px;counter-reset:r}
+.refs li{display:grid;grid-template-columns:38px 1fr;gap:4px}
+.refs li::before{counter-increment:r;content:"[" counter(r) "]";font-variant-numeric:lining-nums tabular-nums}
+.refs a{word-break:break-word}
+.annex{margin-top:3em}
+.preface{margin:0 0 1em}
+.preface p{font-style:italic}
+.sign{text-align:right;font-style:normal!important;margin-top:.4em}
+@media (max-width:640px){
+  p,.list li{text-align:left}
+  .arch .cols{grid-template-columns:1fr 1fr}
+  .road{grid-template-columns:1fr}
+}
+
+/* Sangría tipográfica: primera línea sangrada, sin espacio entre párrafos, sin sangría tras títulos */
+article p{margin:0;text-indent:1.5em}
+h2+p,h3+p,h2+section p:first-child,.eq+p,.list+p,figure+p,.tbl+p,ul+p,ol+p,.abstract p,.kw,.fnote,figure p,.preface p,.decl p,.vars,.type,.subt,.author,.affil,.dates,.sign,.note,.meta,.sub,.kind{text-indent:0}
+.abstract p,.decl p,.preface p{margin:0 0 .5em}
+@page{size:A4;margin:25mm 22mm 25mm}
+@media print{
+  body{font-size:12pt;line-height:1.45}
+  .paper{max-width:none;padding:0}
+  .running{font-size:9.5pt;margin-bottom:30mm}
+  .type{font-size:9.5pt}
+  h1{font-size:18pt}
+  .subt{font-size:13pt}
+  .author{font-size:12pt}
+  .affil,.dates{font-size:10.5pt}
+  .abstract{font-size:11pt;max-width:none;margin-inline:8mm;break-inside:avoid}
+  .abstract h2{font-size:11pt}
+  h2.sec{font-size:12.5pt}
+  h3{font-size:12pt}
+  .fnum,.ftitle{font-size:11pt}
+  .fnote{font-size:9.5pt}
+  table{font-size:10pt;min-width:0}
+  .arch,.road{font-size:10pt}
+  .decl{font-size:10.5pt}
+  .refs{font-size:10pt}
+  .eq{font-size:14pt}
+  .svgbox svg{min-width:0}
+  p{text-align:justify}
+  .arch .cols{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .road{grid-template-columns:repeat(4,minmax(0,1fr))}
+  h2.sec,h3{break-after:avoid}
+  .list li{break-inside:avoid}
+  .decl{break-inside:avoid}
+  .refs-h,.annex{break-before:page}
+}
+
+@media print{
+  figure:has(table){break-inside:auto}
+  figure:has(table) .tbl{overflow:visible}
+  thead{display:table-header-group}
+  tr{break-inside:avoid}
+  .fnum,.ftitle{break-after:avoid}
+  figure:has(table) .fnote{break-before:avoid}
+  p{orphans:3;widows:3}
+  .annex{break-before:auto}
+  .annex:first-of-type{break-before:page}
+  .refs-h{break-before:page}
+}
+</style>
+</head>
+<body>
+
+<article class="paper">
+
+<div class="running"><span>Documento de trabajo N.º 1/2026</span><span>Versión 1.8 · 6 de noviembre de 2026</span></div>
+
+<p class="type">Documento de trabajo · Economía monetaria e instituciones</p>
+<h1>Paraguay, el último bastión</h1>
+<p class="subt">Energía soberana, confianza verificable y adopción voluntaria de Bitcoin: un marco de política pública a partir de la experiencia internacional</p>
+<p class="author">Gregorio Punzano<sup>a</sup></p>
+<p class="affil"><sup>a</sup> Satolink, España · gregorio@satolink.com</p>
+<p class="dates">Fecha de corte de los datos: 6 de noviembre de 2026</p>
+
+<section class="abstract">
+  <h2>Resumen</h2>
+  <p>Paraguay combina un excedente de generación hidroeléctrica, el régimen tributario más simple de Sudamérica y estabilidad macroeconómica con grado de inversión. Su restricción principal es institucional: una de las percepciones de corrupción más altas de la región y baja confianza en las instituciones públicas. Su posición geográfica añade una ventaja poco estudiada: limita con tres economías cuyas monedas pierden confianza, Argentina, Brasil y Bolivia, y concentra un comercio fronterizo de miles de millones de dólares. Este trabajo propone un marco de adopción voluntaria de Bitcoin para Paraguay. A partir de la experiencia de El Salvador, Bután y Estonia, se derivan reglas de política, cinco pilares de actuación y una hoja de ruta en cuatro fases condicionadas.</p>
+  <p>Una medición original de las tarifas del corredor España–Paraguay, origen del 61% de las remesas, muestra que el coste recurrente de los operadores en línea se sitúa entre el 3,5% y el 7,9%, y que las ofertas «sin comisión» trasladan el coste al tipo de cambio. Con datos del Banco Central del Paraguay, se estima que una comisión del 1% ahorraría a los hogares receptores entre 1,8 y 50,4 millones de dólares al año, según el grado de adopción. Convertir parte de la energía cedida a Brasil en actividad de mayor valor añadido podría generar entre 11 y 157 millones de dólares anuales adicionales. Un análisis jurídico muestra que las tres primeras fases no requieren ninguna ley nueva. Se propone además una métrica nueva, el Índice de Verificabilidad Pública, y un anexo técnico detalla la custodia multifirma de una reserva auditable, el flujo de una remesa y los indicadores del piloto. El guaraní se mantiene como única moneda de curso legal.</p>
+  <p class="kw"><b>Palabras clave:</b> Bitcoin; confianza institucional; remesas; energía; política monetaria; Paraguay.</p>
+  <p class="kw"><b>Clasificación JEL:</b> D73, E42, E58, F24, O33, Q42.</p>
+</section>
+
+<section class="abstract" lang="en">
+  <h2>Abstract</h2>
+  <p>Paraguay combines a hydroelectric surplus, the simplest tax regime in South America and investment-grade stability, yet faces a binding institutional constraint: low public trust. Drawing on the experiences of El Salvador, Bhutan and Estonia, this paper proposes a voluntary Bitcoin adoption framework with five pillars and a gated four-phase roadmap. An original price survey of the Spain–Paraguay corridor, the source of 61% of remittances, finds recurring online costs of 3.5–7.9%, with "zero-fee" offers shifting the cost into the exchange rate. Household savings are estimated at USD 1.8–50.4 million per year and additional energy value at USD 11–157 million per year. The paper introduces a Public Verifiability Index, and a technical annex specifies multisignature custody of an auditable public reserve and pilot performance indicators. It also identifies Paraguay's role as a potential regional settlement hub for its border trade with Argentina, Brazil and Bolivia. The guaraní remains the sole legal tender.</p>
+  <p class="kw"><b>Keywords:</b> Bitcoin; institutional trust; remittances; energy; monetary policy; Paraguay.</p>
+</section>
+
+<section class="preface">
+<h2 class="sec">Prefacio</h2>
+<p>Este documento nace de una conversación pública. El 4 de noviembre de 2026 escribí que la única solución para Paraguay es Bitcoin. Muchas personas, dentro y fuera del país, preguntaron cuál era la propuesta. Esta es la respuesta, escrita con el rigor que merece el futuro de una población.</p>
+<p>No escribo como observador. Construyo infraestructura de pagos sobre Bitcoin y he visto a familias recibir en segundos un dinero que antes tardaba días. También he estudiado cómo una idea correcta fracasa cuando se impone mal. Este trabajo intenta que Paraguay tenga lo primero sin repetir lo segundo.</p>
+<p>Bitcoin no tiene ego. Tiene reglas. Un país con reglas claras, verificables por cualquiera, atrae a quienes construyen.</p>
+<p class="sign">Gregorio Punzano</p>
+</section>
+
+<h2 class="sec">1. Introducción</h2>
+<p>Gran parte de Occidente avanza hacia una mayor carga fiscal, más deuda pública y más intermediación regulatoria. Paraguay se mueve en dirección contraria: impuestos bajos y uniformes, una matriz eléctrica renovable y excedentaria, y un flujo creciente de inversores de los países vecinos <a href="#r24">[24]</a>. Esa combinación lo convierte en candidato a lo que este trabajo denomina un <i>bastión de libertad económica</i>: una jurisdicción donde quien produce valor puede conservarlo.</p>
+<p>La restricción no es económica, sino institucional. Paraguay obtuvo 24 puntos sobre 100 en el Índice de Percepción de la Corrupción de 2025, en el puesto 150 de 182 <a href="#r37">[37]</a>, y menos de tres de cada diez ciudadanos confían en el Parlamento, el Poder Judicial o los partidos políticos <a href="#r12">[12]</a>. En noviembre de 2026, el Banco Central del Paraguay (BCP) inició la resolución de Ueno Bank tras caer su índice de solvencia por debajo del 50% del mínimo exigido, y el precio del USDT superó los 6.000 guaraníes <a href="#r7">[7]</a>.</p>
+<p>La pregunta de investigación es la siguiente: <i>¿qué diseño de política permitiría a Paraguay incorporar Bitcoin para reducir su déficit de confianza, aumentar el ingreso de sus hogares y atraer inversión tecnológica, evitando los fallos documentados en otros países?</i> El trabajo aporta cinco contribuciones: (i) un diagnóstico con datos públicos; (ii) una medición original de las tarifas del corredor España–Paraguay; (iii) una traducción sistemática de la experiencia internacional en reglas de política; (iv) una cuantificación de los beneficios en remesas y energía; y (v) una métrica nueva, el Índice de Verificabilidad Pública, junto con la especificación técnica de la custodia, la auditoría y el piloto.</p>
+
+<h2 class="sec">2. Contexto</h2>
+<h3>2.1. Ventajas estructurales</h3>
+<p>Las centrales de Itaipú y Yacyretá pueden generar en torno a 8.500 MW, de los que Paraguay consume menos de la mitad <a href="#r1">[1]</a>. Entre enero y octubre de 2024, Paraguay cedió a Brasil 10,1 millones de MWh de su parte de Itaipú, a una compensación media de 18,9 dólares por MWh <a href="#r33">[33]</a>. El país mantiene un régimen tributario de tipo único del 10% para el IVA, la renta empresarial y la renta personal <a href="#r2">[2]</a>, muy por debajo de sus vecinos (Figura 1). Cuenta con grado de inversión reconocido por Moody's y una deuda pública externa del 35% del PIB en 2024 <a href="#r4">[4]</a>. La Ley 7572/2025 incorpora instrumentos financieros sobre tecnologías de registro distribuido, cuya reglamentación preparan el BCP y la Superintendencia de Valores <a href="#r5">[5]</a>.</p>
+
+<figure>
+  <div class="fnum">Figura 1</div>
+  <div class="ftitle">Tipos generales de los tres principales impuestos en Paraguay y países vecinos (%)</div>
+  <div class="svgbox">
+    <svg viewBox="0 0 660 236" role="img" aria-label="Paraguay aplica 10% en IVA, renta empresarial y renta personal; Argentina, Uruguay y Brasil aplican entre 17% y 36%">
+      <g font-size="13" fill="#000" font-style="italic"><text x="10" y="18">IVA</text><text x="230" y="18">Renta empresarial</text><text x="450" y="18">Renta personal</text></g>
+      <g stroke="#000"><line x1="10" x2="200" y1="186" y2="186"/><line x1="230" x2="420" y1="186" y2="186"/><line x1="450" x2="640" y1="186" y2="186"/></g>
+      <rect x="20" y="148.5" width="34" height="37.5" fill="#000"/><rect x="66" y="107.25" width="34" height="78.75" fill="#bdbdbd"/><rect x="112" y="103.5" width="34" height="82.5" fill="#bdbdbd"/><rect x="158" y="122.25" width="34" height="63.75" fill="#bdbdbd"/>
+      <rect x="240" y="148.5" width="34" height="37.5" fill="#000"/><rect x="286" y="73.5" width="34" height="112.5" fill="#bdbdbd"/><rect x="332" y="92.25" width="34" height="93.75" fill="#bdbdbd"/><rect x="378" y="58.5" width="34" height="127.5" fill="#bdbdbd"/>
+      <rect x="460" y="148.5" width="34" height="37.5" fill="#000"/><rect x="506" y="54.75" width="34" height="131.25" fill="#bdbdbd"/><rect x="552" y="51" width="34" height="135" fill="#bdbdbd"/><rect x="598" y="81" width="34" height="105" fill="#bdbdbd"/>
+      <g font-size="13" text-anchor="middle" fill="#000">
+        <text x="37" y="141" font-weight="700">10</text><text x="83" y="100">21</text><text x="129" y="96">22</text><text x="175" y="115">17</text>
+        <text x="257" y="141" font-weight="700">10</text><text x="303" y="66">30</text><text x="349" y="85">25</text><text x="395" y="51">34</text>
+        <text x="477" y="141" font-weight="700">10</text><text x="523" y="47">35</text><text x="569" y="44">36</text><text x="615" y="74">28</text>
+      </g>
+      <g font-size="12" text-anchor="middle" fill="#000">
+        <text x="37" y="204" font-weight="700">PY</text><text x="83" y="204">AR</text><text x="129" y="204">UY</text><text x="175" y="204">BR</text>
+        <text x="257" y="204" font-weight="700">PY</text><text x="303" y="204">AR</text><text x="349" y="204">UY</text><text x="395" y="204">BR</text>
+        <text x="477" y="204" font-weight="700">PY</text><text x="523" y="204">AR</text><text x="569" y="204">UY</text><text x="615" y="204">BR</text>
+      </g>
+      <text x="10" y="228" font-size="11.5" fill="#333">PY = Paraguay; AR = Argentina; UY = Uruguay; BR = Brasil.</text>
+    </svg>
+  </div>
+  <p class="fnote"><i>Nota.</i> Tipos generales; no incluye regímenes especiales ni tipos reducidos. Fuente: elaboración propia a partir de La Nación <a href="#r3">[3]</a>.</p>
+</figure>
+
+<h3>2.2. Remesas: volumen, origen y coste</h3>
+<p>Los paraguayos en el exterior enviaron 731 millones de dólares en 2024, un récord y un 18% más que en 2023, según el BCP <a href="#r34">[34]</a>. España es, con diferencia, el principal origen: 447 millones, el 61% del total (Figura 2). Esto convierte el corredor España–Paraguay en el caso de uso natural para un piloto de remesas.</p>
+
+<figure>
+  <div class="fnum">Figura 2</div>
+  <div class="ftitle">Remesas recibidas por Paraguay según país de origen, 2024 (millones de USD)</div>
+  <div class="svgbox">
+    <svg viewBox="0 0 660 196" role="img" aria-label="España 447, Estados Unidos 94,8, Argentina 59, Brasil 39, otros 91,2 millones de dólares">
+      <!-- escala 0–500 M = 150–550 px (0,8 px por millón) -->
+      <g font-size="13" fill="#000"><text x="0" y="31">España</text><text x="0" y="67">Estados Unidos</text><text x="0" y="103">Argentina</text><text x="0" y="139">Brasil</text><text x="0" y="175">Otros países</text></g>
+      <rect x="150" y="16" width="357.6" height="22" fill="#000"/>
+      <rect x="150" y="52" width="75.8" height="22" fill="#9a9a9a"/>
+      <rect x="150" y="88" width="47.2" height="22" fill="#9a9a9a"/>
+      <rect x="150" y="124" width="31.2" height="22" fill="#9a9a9a"/>
+      <rect x="150" y="160" width="73" height="22" fill="#d9d9d9"/>
+      <line x1="150" x2="150" y1="10" y2="188" stroke="#000"/>
+      <g font-size="13" fill="#000"><text x="515.6" y="32" font-weight="700">447,0 (61%)</text><text x="233.8" y="68">94,8</text><text x="205.2" y="104">59,0</text><text x="189.2" y="140">39,0</text><text x="231" y="176">91,2</text></g>
+    </svg>
+  </div>
+  <p class="fnote"><i>Nota.</i> Total 2024: 731 M USD. «Otros países» es la diferencia entre el total y los cuatro orígenes publicados. Fuente: BCP, vía La Nación <a href="#r34">[34]</a>.</p>
+</figure>
+
+<p>El Banco Mundial no publica el coste del corredor España–Paraguay. Para cubrir ese vacío, este trabajo midió el 5 de noviembre de 2026 las tarifas de seis ofertas de los principales operadores para un envío de 100 euros, a partir del comparador Monito <a href="#r39">[39]</a> (Tabla 1). El coste total se calcula como la diferencia entre lo que recibiría el beneficiario al tipo de cambio de mercado (6.443 guaraníes por euro) y lo que recibe realmente.</p>
+
+<figure>
+  <div class="fnum">Tabla 1</div>
+  <div class="ftitle">Coste de enviar 100 euros de España a Paraguay, tarifas estándar (5 de noviembre de 2026)</div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Operador y modalidad</th><th class="n">Comisión (EUR)</th><th class="n">Margen de cambio</th><th class="n">Recibe (PYG)</th><th class="n">Coste total</th></tr></thead>
+      <tbody>
+        <tr><td>Western Union, a cuenta bancaria</td><td class="n">2,99</td><td class="n">0,54%</td><td class="n">621.595</td><td class="n">3,52%</td></tr>
+        <tr><td>TransferGo, a cuenta bancaria</td><td class="n">0,00</td><td class="n">3,52%</td><td class="n">621.597</td><td class="n">3,52%</td></tr>
+        <tr><td>Remitly, retiro en efectivo</td><td class="n">2,99</td><td class="n">0,76%</td><td class="n">620.284</td><td class="n">3,73%</td></tr>
+        <tr><td>Western Union, retiro en efectivo</td><td class="n">2,99</td><td class="n">0,82%</td><td class="n">619.890</td><td class="n">3,79%</td></tr>
+        <tr><td>MoneyGram, a cuenta bancaria</td><td class="n">2,49</td><td class="n">2,02%</td><td class="n">615.612</td><td class="n">4,45%</td></tr>
+        <tr><td>MoneyGram, retiro en efectivo</td><td class="n">2,99</td><td class="n">5,09%</td><td class="n">593.243</td><td class="n b">7,92%</td></tr>
+        <tr><td class="b">Media de las seis ofertas</td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n b">4,49%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fnote"><i>Nota.</i> Medición propia con datos del comparador Monito <a href="#r39">[39]</a>, pago con tarjeta. Se excluyen las promociones de primer envío, que pueden reducir el coste a cero. Las transferencias desde bancos españoles cuestan entre el 4% y el 7% <a href="#r40">[40]</a>. Los cobros fijos pesan más en importes pequeños.</p>
+</figure>
+
+<p>La medición arroja tres hallazgos. Primero, el coste recurrente de los operadores en línea oscila entre el 3,5% y el 7,9%, con una media del 4,49%. Segundo, una comisión nula no implica un envío barato: en la oferta más cara, casi todo el coste está oculto en el tipo de cambio. Tercero, el coste no es la única fricción: los envíos a cuenta bancaria pueden tardar de uno a cuatro días <a href="#r39">[39]</a>. Una alternativa sobre Lightning compite, por tanto, en precio, en transparencia del coste y en velocidad.</p>
+
+<p>Enviar dinero sigue siendo caro. El coste medio mundial de enviar 200 dólares fue del 6,36% en el tercer trimestre de 2025, frente a una meta del 3% fijada por los Objetivos de Desarrollo Sostenible para 2030 <a href="#r35">[35]</a>. En el corredor Brasil–Paraguay, el único hacia Paraguay que el Banco Mundial publica actualmente, el coste medio fue del 8,18% <a href="#r36">[36]</a>. La Figura 3 compara estos costes con el objetivo propuesto para el piloto.</p>
+
+<figure>
+  <div class="fnum">Figura 3</div>
+  <div class="ftitle">Coste total de enviar remesas, en porcentaje del importe enviado</div>
+  <div class="svgbox">
+    <svg viewBox="0 0 660 308" role="img" aria-label="Brasil a Paraguay 8,18%; media mundial no digital 7,30%; media mundial 6,36%; media mundial digital 4,59%; España a Paraguay 4,49%; meta ODS 3%; objetivo del piloto 2%; comisión Lightning 1%">
+      <g font-size="13" fill="#000"><text x="0" y="31">Brasil → Paraguay (T3 2025)</text><text x="0" y="67">Media mundial, canales no digitales</text><text x="0" y="103">Media mundial (T3 2025)</text><text x="0" y="139">Media mundial, canales digitales</text><text x="0" y="175" font-weight="700">España → Paraguay (medición propia)</text><text x="0" y="211">Meta ODS 10.c para 2030</text><text x="0" y="247">Objetivo del piloto (propuesto)</text><text x="0" y="283">Comisión Lightning de referencia</text></g>
+      <rect x="250" y="16" width="327.2" height="22" fill="#4d4d4d"/>
+      <rect x="250" y="52" width="292" height="22" fill="#4d4d4d"/>
+      <rect x="250" y="88" width="254.4" height="22" fill="#4d4d4d"/>
+      <rect x="250" y="124" width="183.6" height="22" fill="#4d4d4d"/>
+      <rect x="250" y="160" width="179.6" height="22" fill="#000"/>
+      <rect x="250" y="196" width="120" height="22" fill="#d9d9d9"/>
+      <rect x="250.5" y="232.5" width="80" height="21" fill="#fff" stroke="#000" stroke-dasharray="4 3"/>
+      <rect x="250.5" y="268.5" width="40" height="21" fill="#fff" stroke="#000"/>
+      <line x1="250" x2="250" y1="10" y2="296" stroke="#000"/>
+      <g font-size="13" fill="#000"><text x="585" y="32">8,18</text><text x="550" y="68">7,30</text><text x="512" y="104">6,36</text><text x="441" y="140">4,59</text><text x="437" y="176" font-weight="700">4,49</text><text x="378" y="212">3,00</text><text x="338" y="248">≤ 2,00</text><text x="298" y="284">1,00</text></g>
+    </svg>
+  </div>
+  <p class="fnote"><i>Nota.</i> Brasil–Paraguay y medias mundiales para envíos de 200 USD: Banco Mundial <a href="#r35">[35]</a> <a href="#r36">[36]</a>. España–Paraguay: media de las tarifas estándar de la Tabla 1, para 100 EUR. La comisión de referencia corresponde a un proveedor Lightning en funcionamiento (véase la declaración de conflicto de intereses) y no incluye la conversión a guaraníes. El objetivo del piloto, que sí la incluye, se detalla en la Tabla A1.</p>
+</figure>
+
+<h3>2.3. Paraguay como nodo regional: fronteras con monedas débiles</h3>
+<p>Paraguay limita con tres economías cuyas monedas generan desconfianza en su propia población. Argentina cerró 2025 con una inflación del 31,5%, la más baja en ocho años pero aún muy elevada <a href="#r48">[48]</a>. Bolivia sufre una escasez de dólares; desde que su banco central levantó en junio de 2024 la prohibición de operar con activos virtuales, el volumen liquidado con ellos pasó de 46,5 millones de dólares en el primer semestre de 2024 a 294 millones en el mismo periodo de 2025 <a href="#r49">[49]</a>. Brasil, por su parte, es el principal origen de los compradores que cruzan la frontera.</p>
+<p>Esa demanda ya se canaliza hacia Paraguay a través del comercio fronterizo (Tabla 2). Las importaciones bajo el Régimen de Turismo, que abastecen ese comercio, sumaron 3.069 millones de dólares entre enero y septiembre de 2026, un 36,5% más que un año antes <a href="#r50">[50]</a>. Solo en un evento de cuatro días en noviembre de 2025, Ciudad del Este recibió más de 300.000 visitantes y vendió unos 470 millones de dólares, con un 60% de compradores brasileños y un 40% argentinos <a href="#r51">[51]</a>.</p>
+
+<figure>
+  <div class="fnum">Tabla 2</div>
+  <div class="ftitle">Paraguay y sus vecinos: indicadores de presión monetaria y comercio fronterizo</div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>País o zona</th><th>Indicador</th><th class="n">Valor</th><th>Fuente</th></tr></thead>
+      <tbody>
+        <tr><td>Argentina</td><td>Inflación anual 2025</td><td class="n">31,5%</td><td>INDEC, vía A24 <a href="#r48">[48]</a></td></tr>
+        <tr><td>Bolivia</td><td>Volumen liquidado con activos virtuales, primer semestre de 2025 (2024)</td><td class="n">294 M USD (46,5)</td><td>Banco Central de Bolivia, vía Bitcoin.com <a href="#r49">[49]</a></td></tr>
+        <tr><td>Brasil</td><td>Remesas enviadas a Paraguay, 2024</td><td class="n">39 M USD</td><td>BCP, vía La Nación <a href="#r34">[34]</a></td></tr>
+        <tr><td>Paraguay, frontera</td><td>Importaciones bajo Régimen de Turismo, enero–septiembre de 2026</td><td class="n">3.069 M USD (+36,5%)</td><td>InfoNegocios <a href="#r50">[50]</a></td></tr>
+        <tr><td>Ciudad del Este</td><td>Ventas en un evento de cuatro días, noviembre de 2025</td><td class="n">≈ 470 M USD</td><td>Cámara de Comercio, vía La Nación <a href="#r51">[51]</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fnote"><i>Nota.</i> El Banco Central de Bolivia describió el crecimiento como del 630%; el cociente entre ambas cifras es 6,3, lo que equivale a un aumento de en torno al 530%.</p>
+</figure>
+
+<p>La implicación es directa. Los comercios de Ciudad del Este, Encarnación y Pedro Juan Caballero reciben cada día compradores que llegan con pesos, reales o bolivianos y que, cada vez más, ahorran en dólares digitales o en Bitcoin. Un sistema de cobros instantáneos sobre Lightning permitiría a esos comercios cobrar en un activo global, sin fricción cambiaria y con liquidación en segundos. Paraguay puede convertirse así en el nodo de liquidación digital de su región, no solo en receptor de remesas.</p>
+
+<h3>2.4. La crisis de confianza de 2026</h3>
+<p>A comienzos de noviembre de 2026, el directorio del BCP decidió por unanimidad iniciar la resolución de Ueno Bank, tras constatar que su índice de solvencia había caído por debajo de la mitad del mínimo legal una vez ajustados sus estados financieros <a href="#r63">[63]</a> <a href="#r65">[65]</a>. La entidad, con unos 2,9 millones de clientes, suspendió todos sus servicios. El Fondo de Garantía de Depósitos cubre hasta 75 salarios mínimos por depositante, unos 228,3 millones de guaraníes, lo que según estimaciones preliminares protege por completo al 97% de los depositantes <a href="#r65">[65]</a>. El Instituto de Previsión Social tenía unos 355 millones de dólares invertidos en la entidad, y unos 32.000 jubilados cobraban a través de ella <a href="#r64">[64]</a>.</p>
+<p>La crisis alcanzó a la cúpula institucional. El presidente del BCP, que antes de asumir el cargo había presidido la entidad intervenida, presentó su renuncia el 3 de noviembre <a href="#r63">[63]</a>. El 5 de noviembre, el presidente de la República anunció la suya, en medio de un pedido de juicio político por sus vínculos con el grupo propietario, que él había negado <a href="#r64">[64]</a> <a href="#r65">[65]</a>. Este trabajo no valora responsabilidades, que corresponden a la justicia. Constata un hecho relevante para la propuesta: cuando la independencia entre supervisor y supervisado se pone en duda, la palabra de las instituciones pierde valor, y la verificación independiente pasa de ser una ventaja a ser una necesidad.</p>
+<p>El BCP ha recordado que Bitcoin no es moneda de curso legal ni goza de garantía del Estado <a href="#r6">[6]</a>. Este trabajo parte de ese marco y no lo discute: la propuesta no persigue el curso legal, sino la disponibilidad ordenada de una alternativa voluntaria.</p>
+
+<h2 class="sec">3. Marco teórico e hipótesis</h2>
+<h3>3.1. Dinero, confianza y verificación</h3>
+<p>Un depósito bancario es un pasivo de un tercero: su valor depende de la solvencia y la integridad del emisor. En entornos de baja confianza institucional, ese riesgo de contraparte encarece la intermediación y desincentiva el ahorro formal. Bitcoin sustituye la confianza en un emisor por reglas públicas y verificables: su oferta no puede ampliarse por decisión discrecional y sus registros pueden auditarse sin permiso. Donde la confianza es escasa, los sistemas que minimizan la necesidad de confiar tienen una ventaja relativa.</p>
+<h3>3.2. Libertad económica y protección del productor</h3>
+<p>La tradición liberal clásica, y en particular la obra de Ayn Rand, sostiene que una sociedad libre es la que protege al individuo productivo frente a la expropiación, directa o por vía inflacionaria. Paraguay ya aplica parte de ese principio en su política fiscal. Extenderlo al ámbito monetario, sin coerción, es el núcleo normativo de esta propuesta.</p>
+<h3>3.3. Hipótesis</h3>
+<ul class="list">
+  <li><b>H1.</b><span>La transparencia verificable de las reservas públicas reduce el coste de vigilancia ciudadana y contribuye a recuperar la confianza institucional.</span></li>
+  <li><b>H2.</b><span>La adopción voluntaria basada en utilidad, como unas remesas más baratas, es más duradera que la adopción impuesta o incentivada con transferencias.</span></li>
+  <li><b>H3.</b><span>Un marco regulatorio claro y gradual atrae capital humano y financiero en tecnología con mayor eficacia que una ley de adopción general.</span></li>
+</ul>
+
+<h2 class="sec">4. Datos y método</h2>
+<p>El trabajo combina cuatro enfoques. Primero, un análisis descriptivo de indicadores públicos de Paraguay: fiscales, energéticos, de remesas, de percepción de la corrupción y de confianza institucional. Segundo, una revisión de experiencias internacionales (Bután, Estonia y América Latina) y un estudio de caso comparado con El Salvador, único país que adoptó Bitcoin como moneda de curso legal (2021) y reformó posteriormente esa ley (2025) <a href="#r16">[16]</a> <a href="#r17">[17]</a>. Los resultados salvadoreños proceden de estudios y reportajes publicados, incluida una encuesta presencial a 1.800 hogares de investigadores del National Bureau of Economic Research <a href="#r19">[19]</a>. Tercero, una revisión del estado normativo y operativo de cada componente de la propuesta en Paraguay, para distinguir lo que ya existe, lo que está en desarrollo, lo que se descartó y lo que no es viable hoy. Cuarto, dos modelos de escenarios, de remesas y de energía, construidos con datos del BCP, del Banco Mundial y de la prensa económica paraguaya.</p>
+<p><i>Limitaciones.</i> Los datos de opinión miden percepciones, no la prevalencia real de la corrupción. Parte de las fuentes son secundarias. Los modelos de las secciones 6.3 y 6.4 son escenarios, no previsiones, y no incluyen costes de inversión ni de operación.</p>
+
+<h2 class="sec">5. Resultados</h2>
+<h3>5.1. Diagnóstico institucional de Paraguay</h3>
+<p>La puntuación de Paraguay en el Índice de Percepción de la Corrupción ha descendido de 29 en 2017 a 24 en 2024 y 2025 (Figura 4). La caída de cuatro puntos entre 2023 y 2024 supuso bajar 13 posiciones en la clasificación mundial <a href="#r9">[9]</a>.</p>
+
+<figure>
+  <div class="fnum">Figura 4</div>
+  <div class="ftitle">Puntuación de Paraguay en el Índice de Percepción de la Corrupción, 2017–2025</div>
+  <div class="svgbox">
+    <svg viewBox="0 0 660 220" role="img" aria-label="Paraguay: 29 en 2017, 28 en 2020, 28 en 2023, 24 en 2024 y 24 en 2025">
+      <line x1="60" x2="640" y1="186" y2="186" stroke="#000"/>
+      <line x1="60" x2="60" y1="30" y2="186" stroke="#000"/>
+      <g stroke="#000"><line x1="55" x2="60" y1="136" y2="136"/><line x1="55" x2="60" y1="86" y2="86"/><line x1="55" x2="60" y1="36" y2="36"/></g>
+      <g font-size="12" fill="#000" text-anchor="end"><text x="50" y="190">20</text><text x="50" y="140">24</text><text x="50" y="90">28</text><text x="50" y="40">32</text></g>
+      <g font-size="12" fill="#000" text-anchor="middle"><text x="80" y="206">2017</text><text x="147.5" y="206">2018</text><text x="215" y="206">2019</text><text x="282.5" y="206">2020</text><text x="350" y="206">2021</text><text x="417.5" y="206">2022</text><text x="485" y="206">2023</text><text x="552.5" y="206">2024</text><text x="620" y="206">2025</text></g>
+      <polyline points="80,73.5 282.5,86 485,86 552.5,136 620,136" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="2 4"/>
+      <g fill="#000"><circle cx="80" cy="73.5" r="4.5"/><circle cx="282.5" cy="86" r="4.5"/><circle cx="485" cy="86" r="4.5"/><circle cx="552.5" cy="136" r="4.5"/><circle cx="620" cy="136" r="4.5"/></g>
+      <g font-size="13" text-anchor="middle" fill="#000"><text x="80" y="60">29</text><text x="282.5" y="73">28</text><text x="485" y="73">28</text><text x="552.5" y="124">24</text><text x="620" y="124">24</text></g>
+    </svg>
+  </div>
+  <p class="fnote"><i>Nota.</i> Escala de 0 (muy corrupto) a 100 (muy limpio). Solo se representan los años con dato citado; la línea discontinua une esos puntos y no implica interpolación. Fuentes: <a href="#r8">[8]</a>–<a href="#r11">[11]</a>.</p>
+</figure>
+
+<p>Los indicadores de confianza confirman el diagnóstico (Tabla 3). Paraguay es el país de la región donde más ciudadanos creen que los ricos pueden comprar las elecciones <a href="#r14">[14]</a>, y la población sitúa la corrupción entre sus problemas más graves, solo por detrás del económico <a href="#r15">[15]</a>.</p>
+
+<figure>
+  <div class="fnum">Tabla 3</div>
+  <div class="ftitle">Indicadores de corrupción y confianza institucional en Paraguay y en la región</div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Indicador</th><th class="n">Paraguay</th><th class="n">Referencia regional</th><th>Fuente</th></tr></thead>
+      <tbody>
+        <tr><td>Índice de Percepción de la Corrupción 2025 (0–100)</td><td class="n b">24</td><td class="n">Uruguay 73 · Chile 63 · Argentina 36 · Brasil 35</td><td>Transparencia Internacional <a href="#r37">[37]</a></td></tr>
+        <tr><td>Puesto mundial en el mismo índice</td><td class="n">150 de 182</td><td class="n"></td><td>Transparencia Internacional <a href="#r37">[37]</a></td></tr>
+        <tr><td>Confianza en los partidos políticos</td><td class="n">14%</td><td class="n">17%</td><td>Latinobarómetro 2024 <a href="#r12">[12]</a> <a href="#r38">[38]</a></td></tr>
+        <tr><td>Confianza en el Parlamento</td><td class="n">23%</td><td class="n">24%</td><td>Latinobarómetro 2024 <a href="#r12">[12]</a> <a href="#r38">[38]</a></td></tr>
+        <tr><td>Confianza en el Poder Judicial</td><td class="n">28%</td><td class="n">28%</td><td>Latinobarómetro 2024 <a href="#r12">[12]</a> <a href="#r38">[38]</a></td></tr>
+        <tr><td>Población que percibe un aumento de la corrupción</td><td class="n">70%</td><td class="n"></td><td>Latinobarómetro <a href="#r13">[13]</a></td></tr>
+        <tr><td>Población que cree que los ricos pueden comprar elecciones</td><td class="n">65%</td><td class="n">el más alto de la región</td><td>Encuesta regional <a href="#r14">[14]</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fnote"><i>Nota.</i> El puesto en el índice se obtiene ordenando las puntuaciones publicadas por Transparencia Internacional; Paraguay comparte el puesto con otros dos países. Las referencias regionales de Latinobarómetro corresponden al conjunto de los 18 países encuestados.</p>
+</figure>
+
+<h3>5.2. Tendencia global de adopción</h3>
+<p>El número estimado de propietarios de criptoactivos en el mundo pasó de unos 106 millones a comienzos de 2021 a 741 millones en 2025, siete veces más (Figura 5) <a href="#r26">[26]</a>–<a href="#r28">[28]</a>. Los propietarios de Bitcoin alcanzaron 365 millones en 2025, casi la mitad del total <a href="#r26">[26]</a>. La red Lightning, que permite pagos instantáneos, movió en torno a 1.170 millones de dólares en noviembre de 2025, un 266% más que un año antes <a href="#r32">[32]</a>. América Latina fue en 2025 la segunda región de mayor crecimiento, con un aumento de la adopción del 63% <a href="#r31">[31]</a>.</p>
+
+<figure>
+  <div class="fnum">Figura 5</div>
+  <div class="ftitle">Propietarios estimados de criptoactivos y de Bitcoin en el mundo, 2021–2025 (millones de personas)</div>
+  <div class="svgbox">
+    <svg viewBox="0 0 660 262" role="img" aria-label="Propietarios de criptoactivos: 106 millones a inicios de 2021, 295 en 2021, 432 en 2022, 580 en 2023, 659 en 2024 y 741 en 2025. Propietarios de Bitcoin: 296 en 2023, 337 en 2024 y 365 en 2025">
+      <line x1="70" x2="640" y1="210" y2="210" stroke="#000"/>
+      <line x1="70" x2="70" y1="24" y2="210" stroke="#000"/>
+      <g stroke="#000"><line x1="65" x2="70" y1="165" y2="165"/><line x1="65" x2="70" y1="120" y2="120"/><line x1="65" x2="70" y1="75" y2="75"/><line x1="65" x2="70" y1="30" y2="30"/></g>
+      <g font-size="12" fill="#000" text-anchor="end"><text x="60" y="214">0</text><text x="60" y="169">200</text><text x="60" y="124">400</text><text x="60" y="79">600</text><text x="60" y="34">800</text></g>
+      <g font-size="12" fill="#000" text-anchor="middle"><text x="96" y="230">Ene 2021</text><text x="200" y="230">2021</text><text x="304" y="230">2022</text><text x="408" y="230">2023</text><text x="512" y="230">2024</text><text x="616" y="230">2025</text></g>
+      <polyline points="96,186.2 200,143.6 304,112.8 408,79.5 512,61.7 616,43.3" fill="none" stroke="#000" stroke-width="2"/>
+      <g fill="#000"><circle cx="96" cy="186.2" r="4"/><circle cx="200" cy="143.6" r="4"/><circle cx="304" cy="112.8" r="4"/><circle cx="408" cy="79.5" r="4"/><circle cx="512" cy="61.7" r="4"/><circle cx="616" cy="43.3" r="4"/></g>
+      <g font-size="12.5" text-anchor="middle" fill="#000"><text x="96" y="176">106</text><text x="200" y="133">295</text><text x="304" y="102">432</text><text x="408" y="69">580</text><text x="512" y="51">659</text><text x="616" y="32" font-weight="700">741</text></g>
+      <polyline points="408,143.4 512,134.2 616,127.9" fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <g fill="#fff" stroke="#000" stroke-width="1.5"><circle cx="408" cy="143.4" r="4"/><circle cx="512" cy="134.2" r="4"/><circle cx="616" cy="127.9" r="4"/></g>
+      <g font-size="12.5" text-anchor="middle" fill="#000"><text x="408" y="162">296</text><text x="512" y="153">337</text><text x="616" y="147" font-weight="700">365</text></g>
+      <g font-size="12" fill="#000"><line x1="90" x2="114" y1="250" y2="250" stroke="#000" stroke-width="2"/><text x="120" y="254">Propietarios de criptoactivos</text><line x1="320" x2="344" y1="250" y2="250" stroke="#000" stroke-width="1.5" stroke-dasharray="6 4"/><text x="350" y="254">Propietarios de Bitcoin</text></g>
+    </svg>
+  </div>
+  <p class="fnote"><i>Nota.</i> Estimaciones de Crypto.com basadas en datos de cadena de bloques. El valor de 2022 corresponde a enero de 2023. La serie de Bitcoin solo está disponible desde 2023. Fuentes: <a href="#r26">[26]</a>–<a href="#r28">[28]</a>.</p>
+</figure>
+
+<h3>5.3. Experiencias internacionales comparadas</h3>
+<p>Tres experiencias aportan evidencia útil para Paraguay (Tabla 4). Bután, un país pequeño con excedente hidroeléctrico como Paraguay, ha convertido su energía en reservas de Bitcoin y las ha usado para financiar salarios públicos y frenar la fuga de talento <a href="#r29">[29]</a>. Estonia muestra que un marco digital simple atrae empresas y recaudación de todo el mundo: cada euro invertido en su programa de residencia electrónica devolvió más de 12 euros al Estado en 2025 <a href="#r30">[30]</a>. El Salvador demuestra que la infraestructura funciona a escala nacional, pero que la imposición no genera uso.</p>
+
+<figure>
+  <div class="fnum">Tabla 4</div>
+  <div class="ftitle">Experiencias internacionales de economía digital y Bitcoin</div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>País</th><th>Iniciativa</th><th>Resultados documentados</th><th>Lección para Paraguay</th></tr></thead>
+      <tbody>
+        <tr><td>Bután</td><td>Minería de Bitcoin con excedente hidroeléctrico</td><td>Reservas estimadas en más de 600 M USD, cerca del 30% del PIB (abril de 2025). En 2023 vendió 100 M USD para duplicar los salarios públicos; las renuncias de funcionarios bajaron de ~1.900 (T1 2023) a 500 (T1 2024) <a href="#r29">[29]</a></td><td>El excedente energético puede financiar servicios públicos y retener talento</td></tr>
+        <tr><td>Estonia</td><td>Residencia electrónica para emprendedores de todo el mundo</td><td>125 M € de ingresos públicos en 2025 (+87%); 5.556 empresas creadas en 2025; más de 12 € por cada euro invertido <a href="#r30">[30]</a></td><td>Un marco digital simple atrae empresas y recaudación</td></tr>
+        <tr><td>El Salvador</td><td>Bitcoin como moneda de curso legal (2021–2025)</td><td>4,2 millones de transacciones Lightning en la billetera estatal en 2025 <a href="#r32">[32]</a>, pero uso cotidiano bajo <a href="#r19">[19]</a> <a href="#r20">[20]</a></td><td>La infraestructura funciona; la imposición no</td></tr>
+        <tr><td>América Latina</td><td>Adopción privada y voluntaria</td><td>+63% de adopción en 2025, segunda región de mayor crecimiento del mundo <a href="#r31">[31]</a></td><td>La demanda ya existe; falta un marco ordenado</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fnote"><i>Nota.</i> Las reservas de Bután no son oficiales; proceden de estimaciones de la firma de análisis Arkham citadas por Al Jazeera, y su valor varía con el precio de Bitcoin.</p>
+</figure>
+
+<h3>5.4. Evidencia del caso salvadoreño</h3>
+<p>La adopción en El Salvador fue amplia en descargas y reducida en uso. El principal motor fue un bono de 30 dólares; solo en torno al 20% de los encuestados siguió usando la billetera estatal Chivo tras gastarlo <a href="#r20">[20]</a>. Un 20% de las empresas aceptaba Bitcoin, el 88% de ellas convertía los cobros a dólares y solo el 4,9% de las ventas se pagaba en Bitcoin <a href="#r19">[19]</a>. La aplicación sufrió fallos técnicos y transacciones irregulares <a href="#r21">[21]</a>. En 2025, en el marco del programa con el FMI, se eliminó la aceptación obligatoria <a href="#r17">[17]</a> y se comprometió la publicación de las direcciones de las billeteras públicas <a href="#r22">[22]</a>; en 2026 se vendió Chivo y terminaron las compras con fondos públicos <a href="#r18">[18]</a>.</p>
+<p>La Tabla 5 traduce cada fallo en una regla de política. La conclusión no es que Bitcoin fracasara, sino que fracasó un modelo de adopción impuesto, incentivado con transferencias y centralizado en una aplicación estatal.</p>
+
+<figure>
+  <div class="fnum">Tabla 5</div>
+  <div class="ftitle">Fallos de diseño en El Salvador y reglas de política derivadas para Paraguay</div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Fallo</th><th>Evidencia en El Salvador</th><th>Regla para Paraguay</th></tr></thead>
+      <tbody>
+        <tr><td>Obligatoriedad</td><td>Aceptación obligatoria; el 88% de las empresas convertía a dólares <a href="#r19">[19]</a></td><td>Adopción voluntaria; el guaraní sigue siendo la única moneda de curso legal</td></tr>
+        <tr><td>Incentivo monetario</td><td>Uso sostenido de ~20% tras el bono de 30 USD <a href="#r20">[20]</a></td><td>Adopción por utilidad: reducción del coste de las remesas</td></tr>
+        <tr><td>Aplicación estatal</td><td>Fallos técnicos e irregularidades en Chivo <a href="#r21">[21]</a></td><td>El Estado regula; los proveedores privados compiten</td></tr>
+        <tr><td>Opacidad</td><td>Publicación de direcciones exigida por el FMI <a href="#r22">[22]</a></td><td>Transparencia verificable desde el inicio (Anexo A)</td></tr>
+        <tr><td>Conflicto institucional</td><td>Tensión con el FMI y reforma de la ley <a href="#r17">[17]</a></td><td>Diálogo con el BCP; piloto antes que ley</td></tr>
+        <tr><td>Educación tardía</td><td>Uso concentrado en población bancarizada, joven y educada <a href="#r20">[20]</a></td><td>Educación en autocustodia antes de escalar</td></tr>
+      </tbody>
+    </table>
+  </div>
+</figure>
+
+<h3>5.5. Situación actual de cada componente en Paraguay</h3>
+<p>Una propuesta para Paraguay debe partir de lo que el país ya ha intentado. La Tabla 6 clasifica cada componente según su estado a la fecha de corte: existente, en desarrollo, en estudio, descartado o no disponible hoy. El resultado matiza la propuesta en tres sentidos. Primero, varios elementos ya están en marcha, como la minería estatal y el marco de prevención del lavado, y la propuesta debe completarlos, no duplicarlos. Segundo, los intentos de ley general fracasaron en 2022, lo que confirma la estrategia de pilotar antes de legislar. Tercero, no consta un sandbox regulatorio formal del BCP, por lo que el piloto debe apoyarse en las facultades que la Ley 7503/2025 otorga al banco central.</p>
+
+<figure>
+  <div class="fnum">Tabla 6</div>
+  <div class="ftitle">Estado de los componentes de la propuesta en Paraguay (noviembre de 2026)</div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Componente</th><th>Estado</th><th>Evidencia</th><th>Implicación para la propuesta</th></tr></thead>
+      <tbody>
+        <tr><td>Ley general de criptoactivos</td><td class="b">Descartado</td><td>Aprobada por el Congreso en 2022, vetada por el Ejecutivo en agosto y archivada por Diputados en diciembre de ese año <a href="#r41">[41]</a></td><td>No se propone una ley general previa; primero el piloto</td></tr>
+        <tr><td>Prohibición de la minería</td><td class="b">Descartado</td><td>Moratoria de 180 días presentada en abril de 2024; el Senado la paralizó y aprobó una declaración a favor de vender excedente a los mineros <a href="#r43">[43]</a></td><td>Existe respaldo legislativo al uso del excedente</td></tr>
+        <tr><td>Minería estatal con equipos incautados</td><td class="b">En desarrollo</td><td>Liderada por la ANDE con asistencia técnica privada; unos 30.000 equipos, con una primera etapa de 1.500 unidades. El destino de los bitcoins está por decidir <a href="#r42">[42]</a></td><td>El Pilar I completa esta iniciativa: define el destino (reserva) y la custodia (Anexo A)</td></tr>
+        <tr><td>Reserva estratégica de Bitcoin</td><td class="b">En estudio</td><td>Propuesta de estudio de un senador en 2024, debatida en una conferencia en Asunción en 2025; sin proyecto de ley conocido <a href="#r44">[44]</a></td><td>Los Pilares I y III aportan el diseño que falta (Anexo B.9)</td></tr>
+        <tr><td>Marco de valores digitales</td><td class="b">En desarrollo</td><td>Ley 7572/2025; reglamentación en preparación por el BCP y la Superintendencia de Valores <a href="#r5">[5]</a></td><td>Base legal para el Pilar IV</td></tr>
+        <tr><td>Prevención del lavado en activos virtuales</td><td class="b">Existente</td><td>Registro obligatorio de sujetos obligados en la Seprelad desde 2023 <a href="#r45">[45]</a>; acuerdo de cooperación con el regulador salvadoreño en 2025 <a href="#r46">[46]</a></td><td>El piloto se integra en el registro existente</td></tr>
+        <tr><td>Fintech en el sistema de pagos</td><td class="b">Existente, en desarrollo</td><td>La Ley 7503/2025 permite al BCP incorporar nuevos proveedores; desde agosto de 2025 las fintech pueden iniciar pagos en el sistema de pagos instantáneos. Decreto reglamentario pendiente <a href="#r47">[47]</a></td><td>Vía institucional para el piloto</td></tr>
+        <tr><td>Sandbox regulatorio del BCP</td><td class="b">No disponible hoy</td><td>No consta un régimen formal de pruebas controladas</td><td>El piloto se propone como autorización acotada bajo la Ley 7503/2025</td></tr>
+        <tr><td>Remesas sobre Lightning con abono en guaraníes</td><td class="b">No disponible hoy</td><td>Bitcoin no es moneda de curso legal ni tiene garantía estatal <a href="#r6">[6]</a>; el abono en guaraníes exige un proveedor con licencia</td><td>Requisito de la Fase 0: socio local con licencia</td></tr>
+        <tr><td>Educación pública en autocustodia</td><td class="b">Sin iniciativa pública identificada</td><td>Solo iniciativas privadas y comunitarias</td><td>El Pilar V cubre un vacío</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fnote"><i>Nota.</i> Elaboración propia a partir de las fuentes citadas. «No consta» indica que no se ha encontrado evidencia pública; la clasificación debe contrastarse con las instituciones durante la Fase 0.</p>
+</figure>
+
+<h3>5.6. Evidencia operativa: lecciones de un sistema en funcionamiento</h3>
+<p>El estudio de campo de este trabajo tiene dos fuentes. La primera es la revisión institucional de la sección 5.5, que deberá completarse con las instituciones en la Fase 0. La segunda es la experiencia directa del autor, que dirige desde junio de 2026 un sistema de pagos sobre Bitcoin y Lightning, sin custodia de fondos y con dinero real, en un corredor de remesas latinoamericano. Esa operación ofrece seis lecciones aplicables a Paraguay:</p>
+<ul class="list">
+  <li><b>(1)</b><span><i>La interfaz decide la adopción.</i> Las direcciones criptográficas ahuyentan al usuario común. Sustituirlas por un enlace personal legible, compartible por mensajería, elimina la principal barrera de entrada.</span></li>
+  <li><b>(2)</b><span><i>Los usuarios separan las funciones del dinero.</i> Para pagar prefieren un activo estable en dólares; para ahorrar, Bitcoin. Un sistema nacional debe admitir ambos.</span></li>
+  <li><b>(3)</b><span><i>La custodia es el riesgo principal.</i> Un diseño en el que el operador no custodia fondos reduce el riesgo operativo y regulatorio, y es compatible con la supervisión de las entradas y salidas en moneda local.</span></li>
+  <li><b>(4)</b><span><i>El cuello de botella es la conversión a moneda local.</i> La liquidación en Lightning es inmediata; la conversión a moneda local depende de socios con licencia y de su liquidez. Por eso el socio local con licencia es un requisito de la Fase 0.</span></li>
+  <li><b>(5)</b><span><i>La confianza se construye en red.</i> La adopción ha sido orgánica, impulsada por recomendación entre usuarios y sin gasto en captación, lo que respalda la hipótesis H2.</span></li>
+  <li><b>(6)</b><span><i>La protección contra el fraude debe estar integrada.</i> La comunicación directa entre emisor y receptor dentro del sistema reduce las estafas, un riesgo crítico en poblaciones que se inician en los pagos digitales.</span></li>
+</ul>
+<p>A estas lecciones se suman las primeras conversaciones con residentes en Paraguay, surgidas tras la difusión pública de la propuesta. Apuntan a tres rasgos del mercado local: el conocimiento sobre Bitcoin se concentra en residentes extranjeros y nómadas digitales; la mayoría de la población desconoce cómo funciona un activo digital; y la desconfianza tras la crisis de Ueno se extiende a las declaraciones de las propias instituciones. Los tres refuerzan la prioridad del Pilar V (educación) y del principio de verificabilidad. Su carácter es exploratorio: la Fase 0 debería contrastarlos con una encuesta representativa.</p>
+<p class="fnote"><i>Nota.</i> Observaciones del autor y conversaciones informales, no auditadas por terceros. Véase la declaración de conflicto de intereses.</p>
+
+<h2 class="sec">6. Propuesta de política</h2>
+<h3>6.1. Principio rector: verificar, no confiar</h3>
+<p>La propuesta descansa en un principio: <i>verificar, no confiar</i>. En un país donde la confianza en las instituciones es baja, pedir más confianza no basta. Lo que sí puede ofrecerse es que cualquier ciudadano compruebe por sí mismo, sin pedir permiso, cuánto vale un activo público y si se ha movido. Para medir ese principio se propone una métrica nueva, el Índice de Verificabilidad Pública (IVP):</p>
+<div class="eq" role="math" aria-label="IVP igual a A sub v entre A sub t por cien"><span>IVP = (A<sub>v</sub> / A<sub>t</sub>) × 100</span><span>(3)</span></div>
+<p>donde <i>A</i><sub>t</sub> es el valor total de los activos de una cartera pública y <i>A</i><sub>v</sub> el valor de la parte cuyo saldo puede verificar cualquier persona, en tiempo real y sin autorización. Para los activos públicos tradicionales, el IVP es prácticamente nulo: su verificación depende de informes periódicos de las propias instituciones. Una reserva en Bitcoin con direcciones publicadas puede alcanzar un IVP del 100% desde el primer día (Anexo A). Paraguay podría ser el primer país en comprometerse por ley con ese umbral, lo que convertiría la hipótesis H1 en un compromiso medible.</p>
+
+<h3>6.1.1. Arquitectura: cinco pilares</h3>
+<p>La propuesta se organiza en cinco pilares sobre una base inamovible: el guaraní como moneda de curso legal, la libertad de elección y el mantenimiento del régimen tributario 10-10-10 (Figura 6).</p>
+
+<figure>
+  <div class="fnum">Figura 6</div>
+  <div class="ftitle">Arquitectura de la propuesta</div>
+  <div class="arch">
+    <div class="roof">Objetivo: Paraguay como jurisdicción de referencia en libertad económica y tecnología Bitcoin</div>
+    <div class="cols">
+      <div class="col"><b>I. Energía soberana</b><span>Mayor valor para el excedente hidroeléctrico</span></div>
+      <div class="col"><b>II. Remesas</b><span>Liquidación en segundos a coste marginal</span></div>
+      <div class="col"><b>III. Transparencia</b><span>Reservas públicas auditables por cualquier ciudadano</span></div>
+      <div class="col"><b>IV. Sandbox</b><span>Piloto con BCP y SIV en el marco de la Ley 7572/2025</span></div>
+      <div class="col"><b>V. Educación</b><span>Autocustodia antes de escalar</span></div>
+    </div>
+    <div class="base">Base: guaraní como moneda de curso legal · adopción voluntaria · régimen 10-10-10</div>
+  </div>
+  <p class="fnote"><i>Nota.</i> Elaboración propia.</p>
+</figure>
+
+<p><i>Pilar I.</i> Parte de la energía hoy cedida a Brasil a menos de 20 dólares por MWh se destina a actividades de mayor valor añadido, incluida la minería de Bitcoin, cuyo resultado alimenta una reserva pública. El Estado ya explora operar minería con unas 30.000 máquinas incautadas <a href="#r23">[23]</a>; la propuesta ordena esa iniciativa en una política explícita (sección 6.4). <i>Pilar II.</i> La red Lightning permite liquidar pagos en segundos con comisiones marginales, lo que convierte las remesas en el caso de uso con mayor utilidad inmediata (sección 6.3). <i>Pilar III.</i> La reserva pública se custodia mediante multifirma y es auditable en tiempo real (H1; Anexo A). <i>Pilar IV.</i> Un piloto controlado con el BCP y la Superintendencia de Valores, con prevención del lavado de activos alineada con la Seprelad e indicadores de éxito definidos de antemano (Tabla A1). <i>Pilar V.</i> Programas de educación en autocustodia con universidades y cooperativas, previos a cualquier fase de escala.</p>
+
+<h3>6.2. Beneficios para la economía local</h3>
+<p>Una economía digital abierta no beneficia solo a quienes usan Bitcoin. Genera un círculo virtuoso que llega a toda la población (Figura 7): la energía excedente se convierte en valor que se queda en el país; la transparencia verificable genera confianza; la confianza atrae talento y capital del exterior; el talento crea empresas, empleo e impuestos; y esa riqueza se traduce en salarios, consumo y servicios públicos.</p>
+
+<figure>
+  <div class="fnum">Figura 7</div>
+  <div class="ftitle">Círculo virtuoso de la economía digital paraguaya</div>
+  <div class="svgbox">
+    <svg viewBox="0 0 660 432" role="img" aria-label="Círculo virtuoso: energía, valor en el país, confianza, talento global, empresas y empleo, riqueza local">
+      <circle cx="330" cy="215" r="180" fill="none" stroke="#000" stroke-width="1"/>
+      <g fill="#000">
+        <path d="M-7,-5 L7,0 L-7,5 Z" transform="translate(420,59.1) rotate(30)"/>
+        <path d="M-7,-5 L7,0 L-7,5 Z" transform="translate(510,215) rotate(90)"/>
+        <path d="M-7,-5 L7,0 L-7,5 Z" transform="translate(420,370.9) rotate(150)"/>
+        <path d="M-7,-5 L7,0 L-7,5 Z" transform="translate(240,370.9) rotate(210)"/>
+        <path d="M-7,-5 L7,0 L-7,5 Z" transform="translate(150,215) rotate(270)"/>
+        <path d="M-7,-5 L7,0 L-7,5 Z" transform="translate(240,59.1) rotate(330)"/>
+      </g>
+      <g fill="#fff" stroke="#000" stroke-width="1">
+        <rect x="250" y="13" width="160" height="44" stroke-width="2"/>
+        <rect x="405.9" y="103" width="160" height="44"/>
+        <rect x="405.9" y="283" width="160" height="44"/>
+        <rect x="250" y="373" width="160" height="44"/>
+        <rect x="94.1" y="283" width="160" height="44"/>
+        <rect x="94.1" y="103" width="160" height="44"/>
+      </g>
+      <g text-anchor="middle" fill="#000">
+        <text x="330" y="32" font-size="13" font-weight="700">1. Energía</text><text x="330" y="49" font-size="11.5">Itaipú y Yacyretá</text>
+        <text x="485.9" y="122" font-size="13" font-weight="700">2. Valor en el país</text><text x="485.9" y="139" font-size="11.5">reserva y minería</text>
+        <text x="485.9" y="302" font-size="13" font-weight="700">3. Confianza</text><text x="485.9" y="319" font-size="11.5">reservas auditables</text>
+        <text x="330" y="392" font-size="13" font-weight="700">4. Talento global</text><text x="330" y="409" font-size="11.5">y capital extranjero</text>
+        <text x="174.1" y="302" font-size="13" font-weight="700">5. Empresas y empleo</text><text x="174.1" y="319" font-size="11.5">impuestos y salarios</text>
+        <text x="174.1" y="122" font-size="13" font-weight="700">6. Riqueza local</text><text x="174.1" y="139" font-size="11.5">consumo, ahorro, servicios</text>
+        <text x="330" y="211" font-size="15" font-weight="700">Economía digital</text><text x="330" y="230" font-size="15" font-weight="700">paraguaya</text>
+      </g>
+    </svg>
+  </div>
+  <p class="fnote"><i>Nota.</i> Elaboración propia. Las flechas indican el sentido del ciclo; cada etapa refuerza la siguiente.</p>
+</figure>
+
+<p>Los beneficios para la población se concretan en seis canales:</p>
+<ul class="list">
+  <li><b>(a)</b><span><i>Ingresos públicos sin nuevos impuestos.</i> La energía que hoy se cede barata genera valor adicional (sección 6.4). En Bután, ese valor permitió duplicar los salarios públicos <a href="#r29">[29]</a>.</span></li>
+  <li><b>(b)</b><span><i>Más dinero para las familias.</i> Remesas más baratas significan más ingresos para los hogares receptores, que lo gastan en el comercio local (sección 6.3).</span></li>
+  <li><b>(c)</b><span><i>Empleo cualificado.</i> Cada empresa tecnológica que se instala contrata ingenieros, abogados, contables y personal de servicios locales.</span></li>
+  <li><b>(d)</b><span><i>Recaudación con régimen 10-10-10.</i> Con tipos bajos, la base crece por volumen: en Estonia, cada euro invertido en atraer emprendedores digitales devolvió más de 12 euros al Estado <a href="#r30">[30]</a>.</span></li>
+  <li><b>(e)</b><span><i>Comercio fronterizo.</i> Aceptar pagos instantáneos en Bitcoin y dólares digitales permite a los comercios de frontera captar a compradores de países con monedas débiles sin depender del cambio en efectivo (sección 2.3).</span></li>
+  <li><b>(f)</b><span><i>Retención del talento joven.</i> Un ecosistema tecnológico propio ofrece a los jóvenes paraguayos una alternativa a emigrar. En Bután, las renuncias de funcionarios cayeron un 74% tras la subida salarial financiada con Bitcoin <a href="#r29">[29]</a>.</span></li>
+</ul>
+
+<h3>6.3. Cuantificación I: ahorro de los hogares en remesas</h3>
+<p>Sea <i>V</i> el volumen anual de remesas recibidas, <i>c</i><sub>0</sub> el coste medio actual por envío, <i>c</i><sub>1</sub> el coste sobre Lightning y <i>α</i> la cuota del volumen que migra voluntariamente. El ahorro anual para los hogares receptores es:</p>
+<div class="eq" role="math" aria-label="S igual a alfa por V por c sub cero menos c sub uno"><span>S = α · V · (c<sub>0</sub> − c<sub>1</sub>)</span><span>(1)</span></div>
+<p>Se toma <i>V</i> = 731 millones de USD, el volumen registrado por el BCP en 2024 <a href="#r34">[34]</a>, y <i>c</i><sub>1</sub> = 1%, la comisión de un proveedor Lightning ya en funcionamiento. Para <i>c</i><sub>0</sub> se usan los valores medidos en el corredor principal (Tabla 1): la oferta estándar más barata (3,5%), la media (4,49%, redondeada a 4,5%) y la más cara (7,9%).</p>
+
+<figure>
+  <div class="fnum">Tabla 7</div>
+  <div class="ftitle">Ahorro anual para los hogares receptores de remesas en Paraguay (millones de USD)</div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Cuota de adopción (α)</th><th class="n"><i>c</i><sub>0</sub> = 3,5%<br>oferta más barata</th><th class="n"><i>c</i><sub>0</sub> = 4,5%<br>media medida</th><th class="n"><i>c</i><sub>0</sub> = 7,9%<br>oferta más cara</th></tr></thead>
+      <tbody>
+        <tr><td>10%</td><td class="n">1,8</td><td class="n">2,6</td><td class="n">5,0</td></tr>
+        <tr><td>25%</td><td class="n">4,6</td><td class="n">6,4</td><td class="n">12,6</td></tr>
+        <tr><td>50%</td><td class="n">9,1</td><td class="n">12,8</td><td class="n">25,2</td></tr>
+        <tr><td>100% (cota superior)</td><td class="n">18,3</td><td class="n">25,6</td><td class="n">50,4</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fnote"><i>Nota.</i> Cálculo con la ecuación (1), <i>V</i> = 731 M USD y <i>c</i><sub>1</sub> = 1%. La Tabla 7 aísla la comisión del tramo Lightning; el coste total con conversión a guaraníes se estima en la sección 6.3.1. Si ese coste final fuera del 2%, el ahorro de cada celda se reduciría entre un 14% y un 40%. Los costes medidos en España se aplican al total de remesas como aproximación, ya que el Banco Mundial no publica los del resto de corredores salvo Brasil.</p>
+</figure>
+
+<h3>6.3.1. Coste total con conversión a guaraníes a tasas actuales</h3>
+<p>La comisión del 1% cubre solo el tramo Lightning. El coste real para el usuario suma tres tramos: la compra del activo digital con euros en España, la transferencia y la venta en guaraníes en Paraguay. La Tabla 8 lo estima con las tasas vigentes a 5 de noviembre de 2026. Para la venta en guaraníes se toma como referencia el diferencial de las casas de cambio frente a la cotización del BCP: compra a 6.040 guaraníes por dólar, frente a una referencia de 6.144 <a href="#r61">[61]</a>.</p>
+
+<figure>
+  <div class="fnum">Tabla 8</div>
+  <div class="ftitle">Coste total estimado de una remesa España–Paraguay sobre Lightning, a tasas del 5 de noviembre de 2026 (% del importe)</div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Tramo</th><th>Supuesto</th><th class="n">Hoy, mercado minorista</th><th class="n">Con socio con licencia</th></tr></thead>
+      <tbody>
+        <tr><td>1. Entrada en España (euros a activo digital)</td><td>Transferencia SEPA gratuita y comisión de compra de un exchange regulado <a href="#r62">[62]</a></td><td class="n">0,2–0,5</td><td class="n">0,2</td></tr>
+        <tr><td>2. Transferencia Lightning</td><td>Comisión de servicio del proveedor; comisión de red despreciable</td><td class="n">1,0</td><td class="n">1,0</td></tr>
+        <tr><td>3. Salida en Paraguay (a guaraníes)</td><td>Hoy: diferencial de casas de cambio frente a la referencia del BCP <a href="#r61">[61]</a>. Con socio: tipo interbancario más un margen pactado del 0,5%</td><td class="n">1,2–1,7</td><td class="n">0,5</td></tr>
+        <tr><td class="b">Coste total</td><td></td><td class="n b">2,4–3,2</td><td class="n b">1,7</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fnote"><i>Nota.</i> Estimación propia. El tramo 3 minorista va del diferencial frente al punto medio de compra y venta (1,2%) al diferencial frente a la referencia del BCP (1,7%). El escenario con socio supone un acuerdo de liquidación mayorista, que debe negociarse en la Fase 0. No incluye el riesgo de tipo de cambio durante los segundos de la transferencia.</p>
+</figure>
+
+<p>El resultado es honesto y relevante. Con las tasas minoristas de hoy, el coste total, entre el 2,4% y el 3,2%, ya es inferior al de todas las ofertas estándar medidas en la Tabla 1, que van del 3,5% al 7,9%, y la entrega es inmediata. Con un socio local que liquide a tipo mayorista, el coste baja al 1,7%, dentro del objetivo del piloto (≤ 2%) y por debajo de la meta del 3% de los ODS. Por eso el socio con licencia no es un detalle operativo: es la condición de la que depende el ahorro. Con el coste minorista medio de hoy (2,8%) y la media medida de los operadores (4,49%), el ahorro anual con plena adopción sería de 12,4 millones de dólares; con el socio, de 20,4 millones.</p>
+
+<h3>6.4. Cuantificación II: valor del excedente energético</h3>
+<p>Sea <i>E</i> la energía cedida a Brasil, <i>p</i><sub>c</sub> la compensación recibida por MWh, <i>p</i><sub>m</sub> el valor por MWh obtenido en un uso alternativo de mayor valor añadido y <i>φ</i> la fracción de energía reasignada. El valor adicional anual es:</p>
+<div class="eq" role="math" aria-label="Delta V igual a fi por E por p sub m menos p sub c"><span>ΔV = φ · E · (p<sub>m</sub> − p<sub>c</sub>)</span><span>(2)</span></div>
+<p>Se toma <i>E</i> = 10,09 millones de MWh y <i>p</i><sub>c</sub> = 18,9 USD/MWh, valores observados entre enero y octubre de 2024 <a href="#r33">[33]</a>. Los valores de <i>p</i><sub>m</sub> son supuestos de escenario; dependen del precio de Bitcoin, de la dificultad de la red y de la tarifa que fije la ANDE.</p>
+
+<figure>
+  <div class="fnum">Tabla 9</div>
+  <div class="ftitle">Valor adicional anual de reasignar energía cedida a Brasil (millones de USD)</div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Fracción reasignada (φ)</th><th class="n"><i>p</i><sub>m</sub> = 30 USD/MWh</th><th class="n"><i>p</i><sub>m</sub> = 40 USD/MWh</th><th class="n"><i>p</i><sub>m</sub> = 50 USD/MWh</th></tr></thead>
+      <tbody>
+        <tr><td>10%</td><td class="n">11,2</td><td class="n">21,3</td><td class="n">31,4</td></tr>
+        <tr><td>25%</td><td class="n">28,0</td><td class="n">53,2</td><td class="n">78,5</td></tr>
+        <tr><td>50%</td><td class="n">56,0</td><td class="n">106,5</td><td class="n">156,9</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fnote"><i>Nota.</i> Cálculo con la ecuación (2). <i>E</i> corresponde a diez meses de 2024, por lo que el cálculo anual es conservador. No incluye inversión en equipos ni costes de transmisión, y está sujeto a la capacidad de la red y a lo dispuesto en el Tratado de Itaipú (sección 7).</p>
+</figure>
+
+<h3>6.5. Coste y retorno del talento global</h3>
+<p>Atraer al mejor talento tecnológico del mundo exige competir con los salarios de Estados Unidos. En 2026, un ingeniero sénior de protocolos cobra allí entre 175.000 y 230.000 dólares de salario base, y un ingeniero principal, entre 210.000 y 280.000 <a href="#r52">[52]</a>. La ventaja de Paraguay no es pagar menos, sino que, con el mismo salario bruto, el profesional conserva más (Tabla 10). Con un salario de 200.000 dólares, el impuesto federal de Estados Unidos asciende a 36.734 dólares, sin contar el impuesto estatal; en Paraguay, el impuesto a la renta personal tiene un tipo máximo del 10%, lo que lo limita a 20.000 dólares <a href="#r53">[53]</a> <a href="#r54">[54]</a>.</p>
+
+<figure>
+  <div class="fnum">Tabla 10</div>
+  <div class="ftitle">Impuesto sobre la renta de un ingeniero con el mismo salario bruto en Estados Unidos y en Paraguay (USD al año)</div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Salario bruto</th><th class="n">EE. UU.: impuesto federal</th><th class="n">Tipo efectivo</th><th class="n">Paraguay: IRP máximo</th><th class="n">Diferencia mínima a favor de Paraguay</th></tr></thead>
+      <tbody>
+        <tr><td>128.400 (media sénior)</td><td class="n">19.550</td><td class="n">15,2%</td><td class="n">≤ 12.840</td><td class="n">≥ 6.710</td></tr>
+        <tr><td>200.000 (protocolo sénior)</td><td class="n">36.734</td><td class="n">18,4%</td><td class="n">≤ 20.000</td><td class="n b">≥ 16.734</td></tr>
+        <tr><td>280.000 (principal)</td><td class="n">61.134</td><td class="n">21,8%</td><td class="n">≤ 28.000</td><td class="n b">≥ 33.134</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fnote"><i>Nota.</i> Cálculo propio. EE. UU.: tramos federales de 2026 para contribuyente individual y deducción estándar de 16.100 USD <a href="#r53">[53]</a>; no incluye impuestos estatales (que en varios estados elevan la diferencia) ni cotizaciones sociales. Paraguay: IRP progresivo del 8%, 9% y 10%, aplicado aquí al tipo máximo sobre el bruto como cota superior <a href="#r54">[54]</a>. Salarios: ZipRecruiter (media sénior) y KORE1 (protocolo y principal) <a href="#r52">[52]</a> <a href="#r55">[55]</a>. El tratamiento de rentas de fuente extranjera requiere un análisis fiscal específico.</p>
+</figure>
+
+<p>Para el piloto, un equipo técnico núcleo de clase mundial, con dos ingenieros sénior de protocolo, un ingeniero de seguridad y un ingeniero principal, costaría entre 0,74 y 1,0 millones de dólares al año en salario base, a precios de Estados Unidos <a href="#r52">[52]</a>. Es una fracción del beneficio estimado: hasta 50,4 millones anuales en remesas y hasta 157 millones en valor energético. Cada profesional que se instala, además, tributa, consume y forma a talento local. Paraguay ya dispone de una vía de residencia permanente directa para inversores desde 150.000 dólares <a href="#r56">[56]</a>; este trabajo propone complementarla con una residencia equivalente para profesionales tecnológicos con contrato acreditado (Anexo B).</p>
+
+<h3>6.6. Hoja de ruta condicionada</h3>
+<p>La implantación se divide en cuatro fases. Cada transición exige cumplir una condición verificable (Figura 8), de modo que el proceso es reversible en cualquier punto. Los indicadores y umbrales del piloto se detallan en la Tabla A1.</p>
+
+<figure>
+  <div class="fnum">Figura 8</div>
+  <div class="ftitle">Fases de implantación y condiciones de paso</div>
+  <div class="road">
+    <div><b>Fase 0. Diálogo</b><span>Meses 0–3</span><span>Publicación, consulta con BCP, SIV y Seprelad; socio local con licencia</span></div>
+    <div class="on"><b>Fase 1. Piloto</b><span>Meses 3–12</span><span>Remesas España–Paraguay en sandbox, sin custodia de fondos, con métricas públicas</span><span class="g">Condición: acuerdo de sandbox</span></div>
+    <div><b>Fase 2. Escala</b><span>Año 2</span><span>Educación en autocustodia, cobros en comercios de frontera (Ciudad del Este, Encarnación), atracción de talento</span><span class="g">Condición: indicadores de la Tabla A1 cumplidos</span></div>
+    <div><b>Fase 3. Reserva</b><span>Año 3 en adelante</span><span>Reserva energética en Bitcoin, multifirma y auditable</span><span class="g">Condición: marco legal aprobado</span></div>
+  </div>
+  <p class="fnote"><i>Nota.</i> Elaboración propia. La fase con borde grueso es el objeto de la petición inicial al BCP.</p>
+</figure>
+
+<h3>6.7. Exclusiones explícitas</h3>
+<p>La propuesta no contempla: (a) sustituir el guaraní ni otorgar curso legal a Bitcoin; (b) obligar a comercios, ciudadanos o entidades financieras; (c) desarrollar una aplicación estatal; (d) incentivar la adopción mediante transferencias; ni (e) atribuir a Bitcoin la solución de problemas ajenos a la custodia y transferencia de valor.</p>
+
+<h2 class="sec">7. Discusión</h2>
+<p>Seis riesgos merecen atención. <i>Volatilidad:</i> el precio de Bitcoin fluctúa; por ello, la propuesta separa el uso transaccional, que se liquida en guaraníes o dólares digitales, de la reserva a largo plazo, y limita esta última al valor generado por el excedente energético, sin comprometer reservas existentes. <i>Capacidad eléctrica:</i> la Unión Industrial Paraguaya ha advertido de que el crecimiento de la demanda minera podría tensionar la red hacia 2029 <a href="#r25">[25]</a>; la Fase 3 debe condicionarse a la planificación de la ANDE. <i>Marco del Tratado de Itaipú:</i> el uso de la energía hoy cedida exige capacidad de retiro y transmisión por parte de la ANDE y debe enmarcarse en la revisión del Anexo C. <i>Riesgo político:</i> la ley de 2022 fue vetada y archivada, y en 2024 se propuso una moratoria a la minería; la renuncia del presidente de la República y del presidente del BCP en noviembre de 2026 abre además un periodo de transición. Esa transición aumenta la incertidumbre, pero también la disposición a reformas que restauren la confianza. El diseño reduce la exposición: según el Anexo B, solo la Fase 3 requiere una ley. <i>Integridad:</i> Bitcoin no elimina la corrupción fuera de la cadena de bloques; lo que reduce es la opacidad sobre los activos públicos que se custodian en ella. <i>Privacidad:</i> la verificación pública debe recaer sobre los activos del Estado, no sobre los ciudadanos; un registro centralizado de direcciones personales, como el que hoy exige la administración tributaria, convierte cualquier filtración en un riesgo para la seguridad física de los ahorradores (Anexo B.5.1).</p>
+<p>La comparación con Bután sugiere que el modelo energético es replicable, pero también que las reservas dependen del precio de Bitcoin; por eso la propuesta exige su publicación y una política de uso definida por ley. La comparación con Estonia indica que la atracción de talento depende menos de los incentivos fiscales que de la simplicidad y la seguridad jurídica, dos atributos que Paraguay ya ofrece. La principal ventaja de Paraguay es temporal: puede empezar por donde El Salvador terminó, con transparencia, voluntariedad y coordinación con el regulador.</p>
+
+<h2 class="sec">8. Conclusiones</h2>
+<p>Paraguay dispone de energía, reglas fiscales simples y estabilidad macroeconómica. Su restricción es la confianza. Un marco de adopción voluntaria, verificable y gradual permite abordar esa restricción sin cuestionar la soberanía monetaria del guaraní. Los escenarios estimados indican beneficios relevantes para los hogares, de hasta 50,4 millones de dólares anuales en remesas, y para el Estado, de hasta 157 millones anuales en valor energético, sin crear impuestos nuevos. A ello se suma su posición como nodo de liquidación para un comercio fronterizo que mueve miles de millones de dólares al año.</p>
+<p>La petición concreta de este trabajo al Banco Central del Paraguay es abrir la Fase 0 y acordar un piloto de remesas en el corredor España–Paraguay, en sandbox regulatorio, con los indicadores de la Tabla A1, métricas públicas y sin custodia de fondos de los usuarios. El autor se compromete a liderar personalmente la ejecución, a establecer en Paraguay el centro de operaciones de la infraestructura del piloto, a publicar sus resultados y a priorizar el interés del país sobre el de cualquier empresa concreta, incluida la propia. El horizonte del proyecto es de una década, con el objetivo de atraer a Paraguay talento e inversión tecnológica de todo el mundo.</p>
+
+<section class="decl">
+  <p><b>Conflicto de intereses.</b> El autor es fundador y director ejecutivo de Satolink, empresa de infraestructura de pagos sobre Bitcoin que podría participar en el piloto propuesto. Este trabajo recomienda expresamente que la selección de proveedores sea abierta y competitiva.</p>
+  <p><b>Financiación.</b> Este trabajo no ha recibido financiación externa.</p>
+  <p><b>Disponibilidad de datos.</b> Todos los datos proceden de las fuentes públicas citadas. La medición de la Tabla 1 puede repetirse con el comparador citado. Los cálculos de las Tablas 7 y 9 pueden reproducirse con las ecuaciones (1) y (2).</p>
+</section>
+
+<section class="annex">
+<h2 class="sec">Anexo A. Arquitectura técnica</h2>
+
+<h3>A.1. Custodia multifirma de la reserva pública</h3>
+<p>La reserva se custodia en una dirección multifirma de Bitcoin con un umbral de 3 de 5: cualquier movimiento exige la firma de al menos tres de cinco instituciones independientes (Figura A1). Ninguna institución puede mover fondos por sí sola, y la pérdida de hasta dos claves no compromete el acceso. Cada clave se guarda en un dispositivo de firma aislado de internet, en una ubicación física distinta. La política de gasto se fija por ley: los fondos solo pueden enviarse a direcciones registradas previamente, y cada movimiento se publica con su justificación.</p>
+
+<figure>
+  <div class="fnum">Figura A1</div>
+  <div class="ftitle">Esquema de custodia multifirma 3 de 5 y verificación pública</div>
+  <div class="svgbox">
+    <svg viewBox="0 0 660 300" role="img" aria-label="Cinco instituciones con una clave cada una; tres firmas necesarias para mover la reserva; saldo verificable por cualquier ciudadano">
+      <g fill="#fff" stroke="#000" stroke-width="1">
+        <rect x="15" y="20" width="116" height="48"/><rect x="141" y="20" width="116" height="48"/><rect x="267" y="20" width="116" height="48"/><rect x="393" y="20" width="116" height="48"/><rect x="519" y="20" width="126" height="48"/>
+      </g>
+      <g text-anchor="middle" fill="#000">
+        <text x="73" y="41" font-size="13" font-weight="700">BCP</text><text x="73" y="58" font-size="11.5">clave 1</text>
+        <text x="199" y="41" font-size="13" font-weight="700">Min. de Economía</text><text x="199" y="58" font-size="11.5">clave 2</text>
+        <text x="325" y="41" font-size="13" font-weight="700">ANDE</text><text x="325" y="58" font-size="11.5">clave 3</text>
+        <text x="451" y="41" font-size="13" font-weight="700">Contraloría</text><text x="451" y="58" font-size="11.5">clave 4</text>
+        <text x="582" y="41" font-size="13" font-weight="700">Custodio técnico</text><text x="582" y="58" font-size="11.5">clave 5 · independiente</text>
+      </g>
+      <g stroke="#000" stroke-width="1" fill="none"><path d="M73,68 L250,124"/><path d="M199,68 L290,124"/><path d="M325,68 L330,124"/><path d="M451,68 L370,124"/><path d="M582,68 L410,124"/></g>
+      <rect x="210" y="124" width="240" height="56" fill="#fff" stroke="#000" stroke-width="2"/>
+      <g text-anchor="middle" fill="#000"><text x="330" y="148" font-size="14" font-weight="700">Reserva soberana</text><text x="330" y="167" font-size="12">se necesitan 3 de 5 firmas</text></g>
+      <line x1="330" x2="330" y1="180" y2="222" stroke="#000"/>
+      <path d="M325,214 L330,224 L335,214 Z" fill="#000"/>
+      <rect x="150" y="224" width="360" height="56" fill="#f2f2f2" stroke="#000" stroke-width="1"/>
+      <g text-anchor="middle" fill="#000"><text x="330" y="248" font-size="13" font-weight="700">Direcciones públicas de solo lectura</text><text x="330" y="266" font-size="12">cualquier ciudadano verifica el saldo en tiempo real</text></g>
+    </svg>
+  </div>
+  <p class="fnote"><i>Nota.</i> Elaboración propia. La asignación de claves es ilustrativa; su composición final debe fijarla la ley.</p>
+</figure>
+
+<h3>A.2. Prueba de reservas</h3>
+<p>Se publica el descriptor de la billetera (la descripción pública de sus direcciones), que permite a cualquier persona consultar el saldo en un explorador de bloques sin poder mover fondos. Cada mes, las instituciones firmantes publican un mensaje firmado criptográficamente con las claves de la reserva, que demuestra que siguen controlándola. Un auditor independiente verifica ambas cosas cada trimestre. Como la reserva no tiene pasivos frente a terceros, el saldo publicado es su valor completo. Con este procedimiento, el Índice de Verificabilidad Pública de la reserva es del 100%, y la hipótesis H1 se convierte en un procedimiento comprobable.</p>
+
+<h3>A.3. Flujo de una remesa en el piloto</h3>
+<p>El emisor en España paga en euros a un proveedor regulado, que aplica los controles de identificación de cliente y convierte el importe a Bitcoin o a dólares digitales. El pago viaja por la red Lightning y se liquida en segundos. En Paraguay, un proveedor con licencia lo recibe, aplica los controles exigidos por la Seprelad y lo abona en guaraníes en la cuenta o billetera del receptor, que también puede optar por conservarlo en Bitcoin (Figura A2). El software del piloto no custodia fondos: las claves permanecen en los dispositivos de los usuarios.</p>
+
+<figure>
+  <div class="fnum">Figura A2</div>
+  <div class="ftitle">Flujo de una remesa España–Paraguay sobre la red Lightning</div>
+  <div class="svgbox">
+    <svg viewBox="0 0 660 150" role="img" aria-label="Emisor en España, entrada regulada, red Lightning, salida con licencia en Paraguay, receptor">
+      <g fill="#fff" stroke="#000" stroke-width="1">
+        <rect x="6" y="14" width="112" height="72"/><rect x="138" y="14" width="112" height="72"/><rect x="270" y="14" width="120" height="72" stroke-width="2"/><rect x="410" y="14" width="112" height="72"/><rect x="542" y="14" width="112" height="72"/>
+      </g>
+      <g fill="#000"><path d="M120,50 L134,50" stroke="#000"/><path d="M130,45 L138,50 L130,55 Z"/><path d="M252,50 L266,50" stroke="#000"/><path d="M262,45 L270,50 L262,55 Z"/><path d="M392,50 L406,50" stroke="#000"/><path d="M402,45 L410,50 L402,55 Z"/><path d="M524,50 L538,50" stroke="#000"/><path d="M534,45 L542,50 L534,55 Z"/></g>
+      <g text-anchor="middle" fill="#000">
+        <text x="62" y="38" font-size="13" font-weight="700">Emisor</text><text x="62" y="56" font-size="11.5">en España</text><text x="62" y="72" font-size="11.5">paga en euros</text>
+        <text x="194" y="38" font-size="13" font-weight="700">Entrada</text><text x="194" y="56" font-size="11.5">proveedor regulado</text><text x="194" y="72" font-size="11.5">identificación</text>
+        <text x="330" y="38" font-size="13" font-weight="700">Red Lightning</text><text x="330" y="56" font-size="11.5">liquidación</text><text x="330" y="72" font-size="11.5">en segundos</text>
+        <text x="466" y="38" font-size="13" font-weight="700">Salida</text><text x="466" y="56" font-size="11.5">licencia en Paraguay</text><text x="466" y="72" font-size="11.5">controles Seprelad</text>
+        <text x="598" y="38" font-size="13" font-weight="700">Receptor</text><text x="598" y="56" font-size="11.5">guaraníes</text><text x="598" y="72" font-size="11.5">o Bitcoin</text>
+      </g>
+      <path d="M6,106 L6,114 L654,114 L654,106" fill="none" stroke="#000" stroke-width="1"/>
+      <text x="330" y="136" text-anchor="middle" font-size="12" fill="#000">Coste objetivo para el usuario ≤ 2% · el software no custodia fondos de los usuarios</text>
+    </svg>
+  </div>
+  <p class="fnote"><i>Nota.</i> Elaboración propia.</p>
+</figure>
+
+<h3>A.4. Indicadores del piloto</h3>
+<p>El piloto se evalúa con indicadores y umbrales fijados antes de su inicio (Tabla A1). El paso a la Fase 2 exige cumplirlos durante al menos los tres últimos meses del piloto. Los resultados se publican cada mes.</p>
+
+<figure>
+  <div class="fnum">Tabla A1</div>
+  <div class="ftitle">Indicadores de desempeño del piloto y umbrales propuestos</div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Indicador</th><th>Definición</th><th>Umbral propuesto</th></tr></thead>
+      <tbody>
+        <tr><td>Coste total para el usuario</td><td>Comisiones más margen de cambio, sobre un envío de 200 USD</td><td>≤ 2%</td></tr>
+        <tr><td>Tiempo hasta disponibilidad</td><td>Mediana desde el pago del emisor hasta el abono al receptor</td><td>≤ 10 minutos</td></tr>
+        <tr><td>Tasa de éxito</td><td>Envíos completados sobre envíos iniciados</td><td>≥ 99%</td></tr>
+        <tr><td>Seguridad</td><td>Incidentes con pérdida de fondos de usuarios</td><td>0</td></tr>
+        <tr><td>Cumplimiento</td><td>Operaciones de entrada y salida con identificación completa; reportes a Seprelad en plazo</td><td>100%</td></tr>
+        <tr><td>Atención al usuario</td><td>Reclamaciones resueltas en cinco días hábiles</td><td>≥ 95%</td></tr>
+        <tr><td>Verificabilidad de la reserva</td><td>Índice de Verificabilidad Pública, ecuación (3)</td><td>100% desde el primer día</td></tr>
+        <tr><td>Escala del piloto</td><td>Volumen y número de usuarios</td><td>Tope prudencial fijado por el BCP</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fnote"><i>Nota.</i> Propuesta de este trabajo, sujeta a revisión con el BCP y la Superintendencia de Valores. El umbral de coste equivale a menos de la mitad de la media mundial de los canales digitales (4,59%) y está por debajo de la meta ODS del 3%.</p>
+</figure>
+</section>
+
+<section class="annex">
+<h2 class="sec">Anexo B. Análisis jurídico del marco paraguayo</h2>
+<p>Este anexo examina, norma por norma, el encaje de la propuesta en el ordenamiento paraguayo vigente y clasifica cada componente según el instrumento jurídico que necesita: ninguno, una resolución del BCP o de la Seprelad, un decreto o una ley. Se trata de un análisis de política pública; no constituye asesoramiento jurídico y debe validarse con abogados habilitados en Paraguay.</p>
+
+<h3>B.1. Soberanía monetaria</h3>
+<p>La Constitución de 1992 establece una banca central del Estado con la potestad de emisión monetaria, desarrollada por la Ley 489/95, Orgánica del Banco Central del Paraguay <a href="#r57">[57]</a>. Otorgar curso legal a Bitcoin chocaría con ese marco y exigiría una reforma de alto coste político. La propuesta lo evita deliberadamente: Bitcoin se trata como un bien digital de uso voluntario, no como moneda, lo que coincide con la posición del propio BCP <a href="#r6">[6]</a>.</p>
+
+<h3>B.2. Sistema de pagos</h3>
+<p>La Ley 7503/2025, promulgada en junio de 2025, designa al BCP como autoridad de aplicación del Sistema Nacional de Pagos, con potestad para autorizar participantes, fijar requisitos técnicos y dictar normas complementarias <a href="#r58">[58]</a>. Su artículo 4, inciso d, le permite decidir qué proveedores y servicios quedan bajo su supervisión, y en agosto de 2025 ya la usó para incorporar a las fintech como iniciadores de pago <a href="#r47">[47]</a>. Es la base jurídica más directa para autorizar el piloto mediante una resolución acotada en el tiempo y en el volumen, sin necesidad de ley.</p>
+
+<h3>B.3. Mercado de valores digitales</h3>
+<p>La Ley 7572/2025 admite instrumentos financieros sobre tecnologías de registro distribuido, y su reglamentación está en preparación <a href="#r5">[5]</a>. Esa reglamentación es la oportunidad para incluir la custodia institucional de activos digitales y los requisitos de prueba de reservas del Anexo A.</p>
+
+<h3>B.4. Prevención del lavado de activos</h3>
+<p>La Ley 1015/97 creó la Seprelad y el sistema de prevención del lavado de dinero. Desde la Resolución 88/2023, los sujetos obligados que operan con activos virtuales deben registrarse en su sistema de reportes <a href="#r45">[45]</a>, y desde 2025 la Seprelad coopera con el regulador salvadoreño <a href="#r46">[46]</a>. Los proveedores de entrada y salida del piloto quedarían sujetos a ese régimen y a la regla de viaje del GAFI, que exige transmitir la identidad de emisor y receptor en las transferencias de activos virtuales.</p>
+
+<h3>B.5. Régimen fiscal</h3>
+<p>La Ley 6380/2019 fija el impuesto a la renta empresarial en el 10%, el personal en tramos del 8%, 9% y 10%, el IVA general en el 10% y el impuesto a los dividendos en el 8% para residentes y el 15% para no residentes <a href="#r54">[54]</a> <a href="#r59">[59]</a>. La Resolución General DNIT N.º 47/2026, de 10 de marzo de 2026, obliga a los operadores de plataformas y a los residentes cuyas operaciones con criptoactivos superen 5.000 dólares anuales a presentar cada año una declaración jurada informativa en el sistema Marangatu, desde el ejercicio 2026 <a href="#r66">[66]</a>. Por cada operación deben informarse la fecha y la hora, las partes, el activo y la red, la cantidad, el valor en dólares, las comisiones, el hash de la transacción y las direcciones de origen y destino, con el tipo de billetera, incluidas las de autocustodia. Entre los tipos de operación figura la «tenencia o posesión». La presentación tardía se sanciona con 1.000.000 de guaraníes. La resolución regula el deber de información, pero no el tratamiento sustantivo de las ganancias, que sigue sin precisarse; una resolución interpretativa daría seguridad jurídica a mineros, proveedores y usuarios.</p>
+
+<h3>B.5.1. Proporcionalidad del deber de información</h3>
+<p>La finalidad de la norma, la trazabilidad fiscal y la prevención del lavado, es legítima. Su diseño plantea, sin embargo, un problema de proporcionalidad que afecta directamente a esta propuesta. Una dirección pública de Bitcoin vinculada a un nombre y a un domicilio fiscal permite a quien acceda a ella reconstruir el saldo, el historial completo y los movimientos futuros de esa persona. En el sistema bancario, una filtración expone datos; en Bitcoin, expone además un patrimonio que puede sustraerse por coacción física. La experiencia francesa ilustra el riesgo: una funcionaria de la administración tributaria está procesada desde 2025 por consultar sin autorización datos de contribuyentes, entre ellos inversores en criptoactivos, y venderlos a redes criminales <a href="#r67">[67]</a>; en 2026, un ataque a los sistemas fiscales expuso datos de unas 678.000 personas, en un país que registró 30 ataques violentos contra titulares de criptoactivos solo en el primer semestre <a href="#r68">[68]</a>.</p>
+<p>La Constitución de 1992 declara inviolables la intimidad personal y familiar y el respeto a la vida privada (artículo 33). Este trabajo propone sustituir el diseño vigente por otro que alcance el mismo fin con menor exposición: (1) un informe anual agregado por activo, con el saldo a 31 de diciembre y el resultado neto, en lugar del detalle por operación; (2) la supresión de la obligación de declarar direcciones y hashes de billeteras de autocustodia; (3) la concentración del deber de información en las plataformas y proveedores, como hace el marco CARF de la OCDE <a href="#r69">[69]</a>; (4) la exclusión de la mera tenencia sin disposición; y (5) estándares obligatorios de cifrado y registro de accesos, con responsabilidad agravada por la filtración de estos datos. Al tratarse de una resolución general, su modificación corresponde a la propia DNIT y no requiere ley. El principio es coherente con el resto de la propuesta: verificación máxima para los activos del Estado, protección máxima para el patrimonio del ciudadano. La reserva pública se publica; el ahorro de un particular, no.</p>
+
+<h3>B.6. Energía</h3>
+<p>La energía de Itaipú no consumida por Paraguay se cede a Brasil conforme al Tratado de 1973 y a su Anexo C, en revisión <a href="#r33">[33]</a>. Destinar parte de esa energía a uso interno exige capacidad de retiro y transmisión de la ANDE y una tarifa específica para consumidores electrointensivos. La minería estatal en curso se apoya en la ANDE <a href="#r42">[42]</a>, pero el destino de lo minado carece hoy de regulación.</p>
+
+<h3>B.7. Migración y talento</h3>
+<p>La Ley 6984/2022 de Migraciones, publicada en octubre de 2022, regula las residencias temporales y permanentes <a href="#r60">[60]</a>. Desde 2026, el programa Investor Pass concede residencia permanente directa a quienes inviertan desde 150.000 dólares <a href="#r56">[56]</a>. No existe una vía equivalente para profesionales tecnológicos; podría crearse por decreto reglamentario.</p>
+
+<h3>B.8. Instrumentos necesarios</h3>
+
+<figure>
+  <div class="fnum">Tabla B1</div>
+  <div class="ftitle">Componentes de la propuesta e instrumento jurídico necesario</div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Componente</th><th>Norma de referencia</th><th>Instrumento necesario</th><th>Órgano</th></tr></thead>
+      <tbody>
+        <tr><td>Uso voluntario de Bitcoin por particulares</td><td>Constitución; Ley 489/95</td><td>Ninguno</td><td>—</td></tr>
+        <tr><td>Piloto de remesas (Fase 1)</td><td>Ley 7503/2025, art. 4.d</td><td>Resolución de autorización acotada</td><td>BCP</td></tr>
+        <tr><td>Registro de proveedores del piloto</td><td>Ley 1015/97; Res. 88/2023</td><td>Ninguno nuevo; registro existente</td><td>Seprelad</td></tr>
+        <tr><td>Tratamiento fiscal de activos digitales</td><td>Ley 6380/2019</td><td>Resolución interpretativa</td><td>DNIT</td></tr>
+        <tr><td>Deber de información sobre criptoactivos</td><td>RG DNIT 47/2026; Constitución, art. 33</td><td>Modificación de la resolución (B.5.1)</td><td>DNIT</td></tr>
+        <tr><td>Custodia y prueba de reservas</td><td>Ley 7572/2025</td><td>Reglamento</td><td>BCP y Superintendencia de Valores</td></tr>
+        <tr><td>Residencia para profesionales tecnológicos</td><td>Ley 6984/2022</td><td>Decreto reglamentario</td><td>Poder Ejecutivo</td></tr>
+        <tr><td>Tarifa y uso del excedente energético</td><td>Tratado de Itaipú; marco de la ANDE</td><td>Resolución tarifaria; negociación del Anexo C</td><td>ANDE; Cancillería</td></tr>
+        <tr><td>Reserva pública verificable (Fase 3)</td><td>Ley de administración financiera del Estado</td><td>Ley</td><td>Congreso</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fnote"><i>Nota.</i> Elaboración propia. Solo la Fase 3 requiere una ley; las Fases 0 a 2 pueden ejecutarse con los instrumentos vigentes o con normas de rango inferior.</p>
+</figure>
+
+<p>El hallazgo central del análisis es que las Fases 0, 1 y 2 no requieren aprobar ninguna ley. Esto reduce el riesgo político que hizo fracasar la ley de 2022 y permite demostrar resultados antes de pedir al Congreso que se pronuncie.</p>
+
+<h3>B.9. Elementos mínimos de una Ley de Reserva Verificable</h3>
+<p>Para la Fase 3, se propone que la ley contenga, como mínimo: (1) el origen de los fondos, limitado al valor generado por el excedente energético; (2) la custodia multifirma con un umbral de 3 de 5 y la designación de las instituciones firmantes; (3) la publicación obligatoria de las direcciones y un Índice de Verificabilidad Pública del 100%; (4) una política de uso tasada, que prohíba financiar gasto corriente salvo autorización expresa del Congreso; (5) una auditoría independiente trimestral y la publicación mensual de pruebas de control; y (6) un régimen de responsabilidad personal de los firmantes.</p>
+<h3>B.10. Cuestiones para la revisión por un abogado habilitado en Paraguay</h3>
+<p>Este análisis debe ser revisado y firmado por un abogado habilitado en Paraguay con experiencia en derecho financiero. Para facilitar esa revisión, se señalan las cuestiones que requieren su dictamen:</p>
+<ul class="list">
+  <li><b>(1)</b><span>Si el artículo 4, inciso d, de la Ley 7503/2025 permite al BCP autorizar un piloto con proveedores que operan con activos digitales antes de que se dicte el decreto reglamentario.</span></li>
+  <li><b>(2)</b><span>Qué categoría de sujeto obligado corresponde, ante la Seprelad, a un proveedor que no custodia fondos y solo provee software de pagos.</span></li>
+  <li><b>(3)</b><span>Si la venta de activos digitales por guaraníes exige una licencia de casa de cambio o de entidad de pago, o puede realizarse a través de una entidad financiera ya autorizada.</span></li>
+  <li><b>(4)</b><span>El tratamiento fiscal, bajo la Ley 6380/2019, de la remesa recibida, de la conversión y de las ganancias por tenencia de Bitcoin.</span></li>
+  <li><b>(5)</b><span>El encaje de una reserva pública en activos digitales en la ley de administración financiera del Estado y la competencia para designar a sus firmantes.</span></li>
+  <li><b>(6)</b><span>Las condiciones del Tratado de Itaipú y de su Anexo C para destinar a uso interno energía hoy cedida.</span></li>
+  <li><b>(7)</b><span>La vía normativa para crear una residencia de profesionales tecnológicos bajo la Ley 6984/2022.</span></li>
+  <li><b>(8)</b><span>Si el detalle por operación con direcciones de autocustodia que exige la Resolución General DNIT N.º 47/2026 supera el juicio de proporcionalidad del artículo 33 de la Constitución, y qué régimen de protección rige hoy para los datos así declarados.</span></li>
+</ul>
+</section>
+
+<section class="annex">
+<h2 class="sec">Anexo C. Protocolo de validación institucional (Fase 0)</h2>
+<p>La Fase 0 convierte la Tabla 6 en un estudio de campo validado. Se propone una reunión técnica con cada institución, con preguntas cerradas que permitan confirmar o corregir cada clasificación:</p>
+
+<figure>
+  <div class="fnum">Tabla C1</div>
+  <div class="ftitle">Preguntas de validación por institución</div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Institución</th><th>Preguntas</th><th>Componente que valida</th></tr></thead>
+      <tbody>
+        <tr><td>Banco Central del Paraguay</td><td>¿Puede autorizarse un piloto acotado bajo la Ley 7503/2025? ¿Con qué tope de volumen y plazo? ¿Qué entidad liquidaría en guaraníes?</td><td>Pilar IV; Fase 1; Tabla 8</td></tr>
+        <tr><td>Superintendencia de Valores</td><td>¿Incluirá la reglamentación de la Ley 7572/2025 la custodia institucional y la prueba de reservas?</td><td>Anexo A; Pilar III</td></tr>
+        <tr><td>Seprelad</td><td>¿Qué registro y qué reportes se exigirían a los proveedores del piloto? ¿Aplica la regla de viaje del GAFI?</td><td>Anexo B.4; Tabla A1</td></tr>
+        <tr><td>ANDE</td><td>¿Cuál es el calendario de la minería estatal? ¿Qué capacidad de retiro y transmisión existe? ¿Qué destino se prevé para lo minado?</td><td>Pilar I; Tabla 9</td></tr>
+        <tr><td>Ministerio de Economía y DNIT</td><td>¿Qué tratamiento fiscal se aplicaría? ¿Existe disposición a una resolución interpretativa? ¿Y a sustituir el detalle por operación de la RG 47/2026 por un informe agregado?</td><td>Anexo B.5 y B.5.1</td></tr>
+        <tr><td>Dirección General de Migraciones</td><td>¿Es viable una residencia para profesionales tecnológicos por vía reglamentaria?</td><td>Sección 6.5; Anexo B.7</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fnote"><i>Nota.</i> Las respuestas se publicarán como adenda a este documento, con la autorización de cada institución.</p>
+</figure>
+</section>
+
+<h2 class="sec refs-h">Referencias</h2>
+<ol class="refs">
+  <li id="r1"><span>Bitcoin Magazine. <i>Bitcoin miners consider relocating to Paraguay in wake of China ban.</i> <a href="https://bitcoinmagazine.com/?p=15415" target="_blank" rel="noopener">bitcoinmagazine.com</a></span></li>
+  <li id="r2"><span>Última Hora. <i>BBC publica regla de triple 10 de Paraguay para captar inversores.</i> <a href="https://www.ultimahora.com/bbc-publica-regla-de-triple-10-de-paraguay-para-captar-inversores" target="_blank" rel="noopener">ultimahora.com</a></span></li>
+  <li id="r3"><span>La Nación (2025, 1 de agosto). <i>Resaltan modelo económico de Paraguay en debate presidencial chileno.</i> <a href="https://www.lanacion.com.py/negocios/2025/08/01/resaltan-modelo-economico-de-paraguay-en-debate-presidencial-chileno/" target="_blank" rel="noopener">lanacion.com.py</a></span></li>
+  <li id="r4"><span>Ministerio de Industria y Comercio del Paraguay (2025). <i>Paraguay: energía que conecta.</i> <a href="https://mic.gov.py/wp-content/uploads/2025/02/PPT-ENERGIA-QUE-CONECTA_espanol_enero2025.pdf" target="_blank" rel="noopener">mic.gov.py</a></span></li>
+  <li id="r5"><span>CriptoNoticias (2026, 12 de febrero). <i>Paraguay entrará a la era de los activos tokenizados en 2026.</i> <a href="https://www.criptonoticias.com/regulacion/paraguay-criptomonedas-mercado-valores/" target="_blank" rel="noopener">criptonoticias.com</a></span></li>
+  <li id="r6"><span>Banco Central del Paraguay. <i>Comunicado del BCP sobre monedas virtuales o criptomonedas.</i> <a href="https://www.bcp.gov.py/web/institucional/w/comunicado-del-bcp-sobre-monedas-virtuales-o-criptomonedas" target="_blank" rel="noopener">bcp.gov.py</a></span></li>
+  <li id="r7"><span>Antiporovich, N. (2026, noviembre). <i>Sube USDT en Paraguay en medio de crisis bancaria y el «corralito» de Ueno Bank.</i> CriptoNoticias.</span></li>
+  <li id="r8"><span>InfoNegocios (2026). <i>El país se mantiene entre los de mayor percepción de corrupción.</i> <a href="https://infonegocios.com.py/default/el-pais-se-mantiene-entre-los-de-mayor-percepcion-de-corrupcion-genera-sobrecostos-y-desincentiva-los-negocios-advierte-exministro" target="_blank" rel="noopener">infonegocios.com.py</a></span></li>
+  <li id="r9"><span>ABC Color (2025, 12 de febrero). <i>Ranking de corrupción: Paraguay desciende a nivel mundial.</i> <a href="https://www.abc.com.py/politica/2025/02/12/ranking-de-corrupcion-paraguay-desciende-a-nivel-mundial-y-sigue-siendo-subcampeon-de-sudamerica/" target="_blank" rel="noopener">abc.com.py</a></span></li>
+  <li id="r10"><span>Última Hora. <i>Transparencia ubica a Paraguay entre los más corruptos del mundo</i> (IPC 2017). <a href="https://www.ultimahora.com/transparencia-ubica-paraguay-los-mas-corruptos-del-mundo-n1134823" target="_blank" rel="noopener">ultimahora.com</a></span></li>
+  <li id="r11"><span>La Nación (2021, 29 de enero). <i>Paraguay continúa entre los países más corruptos del mundo.</i> <a href="https://lanacion.com.py/politica/2021/01/29/paraguay-continua-entre-los-paises-mas-corruptos-del-mundo" target="_blank" rel="noopener">lanacion.com.py</a></span></li>
+  <li id="r12"><span>Última Hora. <i>Paraguay, entre los países que menos confían en el Congreso y PJ</i> (Latinobarómetro 2024). <a href="https://www.ultimahora.com/paraguay-entre-los-paises-que-menos-confian-en-el-congreso-y-pj" target="_blank" rel="noopener">ultimahora.com</a></span></li>
+  <li id="r13"><span>Última Hora. <i>Revelan que 93% de los paraguayos creen que se gobierna para poderosos.</i> <a href="https://www.ultimahora.com/revelan-que-93-los-paraguayos-creen-que-se-gobierna-poderosos-n2966809" target="_blank" rel="noopener">ultimahora.com</a></span></li>
+  <li id="r14"><span>Última Hora. <i>Construir cultura democrática requiere instituciones que den resultados.</i> <a href="https://www.ultimahora.com/construir-cultura-democratica-requiere-instituciones-que-den-resultados-n3005098" target="_blank" rel="noopener">ultimahora.com</a></span></li>
+  <li id="r15"><span>Última Hora. <i>La corrupción: un peligro para el desarrollo y la democracia.</i> <a href="https://www.ultimahora.com/la-corrupcion-un-peligro-para-el-desarrollo-y-la-democracia" target="_blank" rel="noopener">ultimahora.com</a></span></li>
+  <li id="r16"><span>El Diario de Hoy. <i>Ley Bitcoin: aprobación y entrada en vigencia.</i> <a href="https://www.eldiariodehoy.com/?p=92205" target="_blank" rel="noopener">eldiariodehoy.com</a></span></li>
+  <li id="r17"><span>La República (2025, 7 de febrero). <i>El Salvador en cuatro años aprobó y abandonó al bitcoin como moneda de uso legal.</i> <a href="https://www.larepublica.co/globoeconomia/el-salvador-en-cuatro-anos-otorgo-y-abandono-al-bitcoin-como-moneda-de-curso-4056803" target="_blank" rel="noopener">larepublica.co</a></span></li>
+  <li id="r18"><span>El Diario de Hoy (2026). <i>Cinco años después, el bitcoin pierde aún más protagonismo en El Salvador.</i> <a href="https://www.eldiariodehoy.com/negocios/cinco-anos-despues-el-bitcoin-pierde-aun-mas-protagonismo-en-el-salvador/92205/2026/" target="_blank" rel="noopener">eldiariodehoy.com</a></span></li>
+  <li id="r19"><span>Decrypt. <i>Bitcoin is struggling in El Salvador</i> (sobre Alvarez, Argente y Van Patten, NBER). <a href="https://decrypt.co/98758/bitcoin-struggling-el-salvador-report?amp=1" target="_blank" rel="noopener">decrypt.co</a></span></li>
+  <li id="r20"><span>The Block. <i>Everyday Bitcoin usage in El Salvador remains low despite government push.</i> <a href="https://www.theblock.co/post/144927/security" target="_blank" rel="noopener">theblock.co</a></span></li>
+  <li id="r21"><span>NBC News. <i>Bitcoin use in El Salvador grows amid setbacks since its adoption as legal tender.</i> <a href="https://www.nbcnews.com/news/latino/bitcoin-use-el-salvador-grows-setbacks-adopting-legal-tender-rcna2743" target="_blank" rel="noopener">nbcnews.com</a></span></li>
+  <li id="r22"><span>Decrypt. <i>Bukele rechaza términos del FMI.</i> <a href="https://decrypt.co/es/308954/bukele-rechaza-terminos-del-fmi-afirma-que-la-estrategia-de-bitcoin-de-el-salvador-no-se-detendra?amp=1" target="_blank" rel="noopener">decrypt.co</a></span></li>
+  <li id="r23"><span>altFINS. <i>From contraband to cash flow? Paraguay to mine Bitcoin with 30,000 seized rigs.</i> <a href="https://altfins.com/crypto-news/crypto-news-summary/230858" target="_blank" rel="noopener">altfins.com</a></span></li>
+  <li id="r24"><span>InfoNegocios. <i>Paraguay se consolida como refugio de inversión en el Cono Sur.</i> <a href="https://infonegocios.com.py/amp/nota-principal/paraguay-se-consolida-como-refugio-de-inversion-en-el-cono-sur-llegan-brasilenos-argentinos-y-chilenos" target="_blank" rel="noopener">infonegocios.com.py</a></span></li>
+  <li id="r25"><span>Bitcoin.com News. <i>Alerta: la minería de Bitcoin podría colapsar la red eléctrica de Paraguay para 2029.</i> <a href="https://news.bitcoin.com/es/alerta-la-mineria-de-bitcoin-podria-colapsar-la-red-electrica-de-paraguay-para-2029/" target="_blank" rel="noopener">news.bitcoin.com</a></span></li>
+  <li id="r26"><span>Crypto.com (2026, 16 de febrero). <i>Global cryptocurrency ownership reaches 741 million in 2025.</i> <a href="https://crypto.com/company-news/global-cryptocurrency-ownership-reaches-741-million-in-2025" target="_blank" rel="noopener">crypto.com</a></span></li>
+  <li id="r27"><span>Crowdfund Insider (2024, enero). <i>Digital asset owners increased by 34% in 2023, rising from 432M to 580M.</i> <a href="https://www.crowdfundinsider.com/2024/01/220602-digital-asset-owners-increased-by-34-in-2023-rising-from-432m-to-580m-report-claims/" target="_blank" rel="noopener">crowdfundinsider.com</a></span></li>
+  <li id="r28"><span>Financial Newswire (2022, 21 de enero). <i>Global crypto population grew by 178% in 2021.</i> <a href="https://financialnewswire.com.au/investment/global-crypto-population-grew-by-178-in-2021/" target="_blank" rel="noopener">financialnewswire.com.au</a></span></li>
+  <li id="r29"><span>Al Jazeera (2025, 14 de abril). <i>Can Bitcoin save Bhutan's struggling economy?</i> <a href="https://www.aljazeera.com/economy/2025/4/14/bitcoin-king-why-is-bhutan-betting-on-crypto" target="_blank" rel="noopener">aljazeera.com</a></span></li>
+  <li id="r30"><span>República de Estonia, e-Residency (2026). <i>E-residents generated record state revenue in 2025.</i> <a href="https://www.e-resident.gov.ee/en/blog/posts/e-residents-generated-record-state-revenue-2025" target="_blank" rel="noopener">e-resident.gov.ee</a></span></li>
+  <li id="r31"><span>altFINS (2025). <i>La adopción cripto en América Latina creció 63% en 2025, según Chainalysis.</i> <a href="https://altfins.com/crypto-news/crypto-news-summary/61300" target="_blank" rel="noopener">altfins.com</a></span></li>
+  <li id="r32"><span>Spark (2026). <i>State of the Lightning Network in 2026.</i> <a href="https://spark.money/research/lightning-network-2026-state" target="_blank" rel="noopener">spark.money</a></span></li>
+  <li id="r33"><span>ABC Color (2024, 11 de noviembre). <i>Itaipú: Paraguay recibió este año US$ 19/MWh cedido.</i> <a href="https://www.abc.com.py/economia/2024/11/11/itaipu-paraguay-recibio-este-ano-us-19mwh-cedido-aumento-la-compensacion/" target="_blank" rel="noopener">abc.com.py</a></span></li>
+  <li id="r34"><span>La Nación (2025, 17 de marzo). <i>Paraguayos en el exterior remesaron USD 731 millones en 2024</i> (datos del BCP). <a href="https://www.lanacion.com.py/negocios/2025/03/17/paraguayos-en-el-exterior-remesaron-usd-731-millones-en-2024/" target="_blank" rel="noopener">lanacion.com.py</a></span></li>
+  <li id="r35"><span>Banco Mundial (2026, abril). <i>Remittance Prices Worldwide</i>, número 54 (datos del T3 2025), resumido por RemitRoutes. <a href="https://remitroutes.com/blog/world-bank-remittance-prices-report-april-2026" target="_blank" rel="noopener">remitroutes.com</a></span></li>
+  <li id="r36"><span>Banco Mundial. <i>Remittance Prices Worldwide: corredor Brasil–Paraguay</i> (T3 2025). <a href="https://remittanceprices.worldbank.org/corridor/Brazil/Paraguay" target="_blank" rel="noopener">remittanceprices.worldbank.org</a></span></li>
+  <li id="r37"><span>Transparencia Internacional (2026, febrero). <i>Índice de Percepción de la Corrupción 2025: mapa e índice</i> (edición en español del capítulo nacional). <a href="https://www.libertadciudadana.org/wp-content/uploads/2026/02/CPI2025_Map-plus-Index_ES.pdf" target="_blank" rel="noopener">libertadciudadana.org</a></span></li>
+  <li id="r38"><span>Diálogo Político (Fundación Konrad Adenauer). <i>Lo que dice el nuevo Latinobarómetro: resiliencia y contradicciones.</i> <a href="https://dialogopolitico.org/agenda/latinobarometro-2024/" target="_blank" rel="noopener">dialogopolitico.org</a></span></li>
+  <li id="r39"><span>Monito. <i>Send money from Spain to Paraguay (EUR to PYG)</i>, consulta del 5 de noviembre de 2026. <a href="https://www.monito.com/send-money/spain/paraguay/eur/pyg" target="_blank" rel="noopener">monito.com</a></span></li>
+  <li id="r40"><span>InfoInmigrantes (2025, septiembre). <i>Enviar dinero al extranjero desde España: comparativa de bancos, Ria, Western Union y apps.</i> <a href="https://infoinmigrantes.es/enviar-dinero-extranjero-espana/" target="_blank" rel="noopener">infoinmigrantes.es</a></span></li>
+  <li id="r41"><span>CriptoNoticias (2023, 20 de enero). <i>Mineros de bitcoin de Paraguay presentarán en marzo una nueva propuesta regulatoria.</i> <a href="https://www.criptonoticias.com/regulacion/mineros-bitcoin-paraguay-presentaran-marzo-nueva-propuesta-regulatoria" target="_blank" rel="noopener">criptonoticias.com</a></span></li>
+  <li id="r42"><span>Perfil (2026, 23 de marzo). <i>Paraguay avanza con minería estatal de bitcoin y busca convertir energía excedente en ingresos públicos.</i> <a href="https://www.perfil.com/noticias/nea/paraguay-avanza-con-mineria-estatal-de-bitcoin-y-busca-convertir-energia-excedente-en-ingresos-publicos.phtml" target="_blank" rel="noopener">perfil.com</a></span></li>
+  <li id="r43"><span>ForkLog (2024, 11 de abril). <i>Paraguayan Senate halts Bitcoin mining ban proposal.</i> <a href="https://forklog.com/en/paraguayan-senate-halts-bitcoin-mining-ban-proposal/" target="_blank" rel="noopener">forklog.com</a></span></li>
+  <li id="r44"><span>Bitget News (2025, 5 de septiembre). <i>Paraguay to hold meeting on creating strategic Bitcoin reserve.</i> <a href="https://www.bitget.cloud/news/detail/12560604952465" target="_blank" rel="noopener">bitget.cloud</a></span></li>
+  <li id="r45"><span>Ferrere (2023). <i>Seprelad approves operations report system registration procedures and requirements for virtual assets</i> (Resolución 88/2023). <a href="https://ferrere.com/en/news/seprelad-approves-operations-report-system-registration-procedures-and-requirements-for-virtual-assets/" target="_blank" rel="noopener">ferrere.com</a></span></li>
+  <li id="r46"><span>CriptoNoticias (2025, 10 de marzo). <i>El Salvador y Paraguay firman acuerdo regulatorio sobre criptomonedas.</i> <a href="https://criptonoticias.com/regulacion/elsalvador-paraguay-acuerdo-regulatorio-criptomonedas" target="_blank" rel="noopener">criptonoticias.com</a></span></li>
+  <li id="r47"><span>Última Hora (2025, 29 de agosto). <i>Plataformas de pagos podrán operar a través del SPI.</i> <a href="https://www.ultimahora.com/plataformas-de-pagos-podran-operar-a-traves-del-spi" target="_blank" rel="noopener">ultimahora.com</a></span></li>
+  <li id="r48"><span>A24 (2026, 13 de enero). <i>La inflación cerró diciembre en 2,8% y acumuló 31,5% en 2025</i> (datos del INDEC). <a href="https://www.a24.com/economia/la-inflacion-cerro-diciembre-28-diciembre-y-acumulo-315-2025-n1517032" target="_blank" rel="noopener">a24.com</a></span></li>
+  <li id="r49"><span>Bitcoin.com News (2025, 29 de junio). <i>El Banco Central de Bolivia registra uso récord de activos virtuales en medio de la escasez de dólares.</i> <a href="https://news.bitcoin.com/es/el-banco-central-de-bolivia-registra-uso-record-de-activos-virtuales-en-medio-de-la-escasez-de-dolares/" target="_blank" rel="noopener">news.bitcoin.com</a></span></li>
+  <li id="r50"><span>InfoNegocios (2026, 16 de octubre). <i>Importaciones bajo Régimen de Turismo crecieron 36,5%.</i> <a href="https://infonegocios.com.py/nota-principal/importaciones-bajo-regimen-de-turismo-crecieron-36-5-cde-acelera-mientras-encarnacion-busca-recuperar-dinamismo" target="_blank" rel="noopener">infonegocios.com.py</a></span></li>
+  <li id="r51"><span>La Nación (2025, 26 de diciembre). <i>Año 2025: quiebra de paradigmas en comercio de CDE con récord de turistas y facturación.</i> <a href="https://www.lanacion.com.py/negocios/2025/12/26/ano-2025-quiebra-de-paradigmas-en-comercio-de-cde-con-record-de-turistas-y-facturacion/" target="_blank" rel="noopener">lanacion.com.py</a></span></li>
+  <li id="r52"><span>KORE1 (2026, julio). <i>Blockchain developer salary guide 2026.</i> <a href="https://www.kore1.com/blockchain-developer-salary-guide/" target="_blank" rel="noopener">kore1.com</a></span></li>
+  <li id="r53"><span>Entrepreneur (2025, octubre). <i>Here are the new tax brackets for 2026, adjusted for inflation</i> (ajustes del IRS); CBS News, <i>IRS new tax brackets 2026.</i> <a href="https://www.entrepreneur.com/business-news/irs-tax-brackets-2026-one-big-beautiful-bill-changes/498160" target="_blank" rel="noopener">entrepreneur.com</a> · <a href="https://www.cbsnews.com/news/irs-new-tax-brackets-2026" target="_blank" rel="noopener">cbsnews.com</a></span></li>
+  <li id="r54"><span>Última Hora (2026, 24 de abril). <i>Paraguay ofrece 5 ventajas impositivas a inversionistas</i> (datos del MEF y la DNIT). <a href="https://www.ultimahora.com/paraguay-ofrece-5-ventajas-impositivas-a-inversionistas" target="_blank" rel="noopener">ultimahora.com</a></span></li>
+  <li id="r55"><span>ZipRecruiter (2026, octubre). <i>Senior blockchain developer salary.</i> <a href="https://www.ziprecruiter.com/Salaries/Senior-Blockchain-Developer-Salary" target="_blank" rel="noopener">ziprecruiter.com</a></span></li>
+  <li id="r56"><span>La Nación (2026, 17 de abril). <i>Paraguay lanza Investor Pass para otorgar residencia a extranjeros que inviertan desde USD 150.000.</i> <a href="https://www.lanacion.com.py/negocios/2026/04/17/paraguay-lanza-investor-pass-para-otorgar-residencia-a-extranjeros-que-inviertan-desde-usd-150000/" target="_blank" rel="noopener">lanacion.com.py</a></span></li>
+  <li id="r57"><span>Biblioteca y Archivo del Congreso Nacional. <i>Ley N.º 489, Orgánica del Banco Central del Paraguay.</i> <a href="https://www.bacn.gov.py/leyes-paraguayas/699/ley-n-489-organica-del-banco-central-del-paraguay" target="_blank" rel="noopener">bacn.gov.py</a></span></li>
+  <li id="r58"><span>La Nación (2025, 28 de junio). <i>Ejecutivo promulga ley de Sistema Nacional de Pagos.</i> <a href="https://www.lanacion.com.py/politica/2025/06/28/ejecutivo-promulga-ley-de-sistema-nacional-de-pagos/" target="_blank" rel="noopener">lanacion.com.py</a></span></li>
+  <li id="r59"><span>EY (2019). <i>Paraguay enacts new tax reform</i> (Ley 6380/2019). <a href="https://globaltaxnews.ey.com/news/2019-6278-paraguay-enacts-new-tax-reform" target="_blank" rel="noopener">ey.com</a></span></li>
+  <li id="r60"><span>Abogados.com.ar. <i>Entra en vigor la Ley N.º 6984/2022 de Migraciones.</i> <a href="https://abogados.com.ar/entra-en-vigor-la-ley-n-69842022-de-migraciones/31470" target="_blank" rel="noopener">abogados.com.ar</a></span></li>
+  <li id="r61"><span>La Clave (2026, 5 de noviembre). <i>Dólar sigue al alza y alcanza los G. 6.200 en casas de cambio.</i> <a href="https://www.laclave.com.py/2026/11/05/dolar-sigue-al-alza-y-alcanza-los-g-6-200-en-casas-de-cambio/" target="_blank" rel="noopener">laclave.com.py</a></span></li>
+  <li id="r62"><span>Bit2Me. <i>Kraken fees: cost analysis</i> (comparativa de comisiones de exchanges europeos). <a href="https://bit2me.com/alternatives/kraken/fees" target="_blank" rel="noopener">bit2me.com</a></span></li>
+  <li id="r63"><span>Infobae, con EFE (2026, 4 de noviembre). <i>Renuncia el jefe del Banco Central de Paraguay en medio del escándalo de Ueno bank.</i> <a href="https://www.infobae.com/america/agencias/2026/11/04/renuncia-el-jefe-del-banco-central-de-paraguay-en-medio-del-escandalo-de-ueno-bank/" target="_blank" rel="noopener">infobae.com</a></span></li>
+  <li id="r64"><span>Emol (2026, 5 de noviembre). <i>En qué consiste la crisis de Ueno Bank que terminó con la renuncia del Presidente de Paraguay.</i> <a href="https://www.emol.com/noticias/Internacional/2026/11/05/1216227/paraguay-ueno-bank-santiago-pena.html" target="_blank" rel="noopener">emol.com</a></span></li>
+  <li id="r65"><span>Cadena 3 (2026, noviembre). <i>Qué pasó con Ueno Bank: las claves del colapso que derivó en la renuncia del presidente de Paraguay.</i> <a href="https://www.cadena3.com/noticia/cadena-3-mundo/que-paso-con-ueno-bank-las-claves-del-colapso-que-derivo-en-la-renuncia-del-presidente-de-paraguay_610573" target="_blank" rel="noopener">cadena3.com</a></span></li>
+  <li id="r66"><span>Dirección Nacional de Ingresos Tributarios (2026, 10 de marzo). <i>Resolución General DNIT N.º 47/26, por la cual se establece la obligación de suministrar información a la DNIT sobre las transacciones realizadas con criptoactivos.</i> <a href="https://www.dnit.gov.py/en/web/portal-institucional/w/resoluci%C3%B3n-general-dnit-n%C2%B0-47/26" target="_blank" rel="noopener">dnit.gov.py</a></span></li>
+  <li id="r67"><span>IMI Daily (2026, 10 de enero). <i>French tax official sold cryptocurrency investor data to criminal networks.</i> <a href="https://www.imidaily.com/?p=125071" target="_blank" rel="noopener">imidaily.com</a></span></li>
+  <li id="r68"><span>DiarioBitcoin (2026, 14 de agosto). <i>Hackeo fiscal expone datos de 678.000 franceses y agrava el temor por ataques contra millonarios cripto</i> (datos de Chainalysis). <a href="https://www.diariobitcoin.com/europa/hackeo-fiscal-expone-datos-de-678-000-franceses-y-agrava-el-temor-por-ataques-contra-millonarios-cripto/" target="_blank" rel="noopener">diariobitcoin.com</a></span></li>
+  <li id="r69"><span>EY (2022, 17 de octubre). <i>OECD publishes final Crypto-Asset Reporting Framework and amendments to Common Reporting Standard.</i> <a href="https://taxnews.ey.com/news/2022-1570-oecd-publishes-final-crypto-assets-reporting-framework-and-amendments-to-common-reporting-standard" target="_blank" rel="noopener">ey.com</a></span></li>
+</ol>
+
+</article>
+
+</body>
+</html>
